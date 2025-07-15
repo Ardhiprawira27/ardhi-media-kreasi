@@ -546,13 +546,9 @@ main {
 /* About Us Section (Home Page) */
 .about-content-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Default for mobile */
+    grid-template-columns: 1fr; /* Default for mobile, will be overridden for desktop */
     gap: var(--spacing-xl);
     align-items: center;
-}
-
-.about-text {
-    /* flex: 2; min-width: 300px; */ /* Removed as using grid now */
 }
 
 .about-image {
@@ -1338,10 +1334,116 @@ footer {
     .section-padded {
         padding: var(--spacing-xxl) 0;
     }
-} /* <-- Ini adalah kurung kurawal penutup yang sebelumnya hilang */
+}
 
 @media (max-width: 768px) {
+    /* Penyesuaian untuk layar tablet dan mobile yang lebih besar */
+    h1 { font-size: 2.5em; } /* Umum */
+    h2 { font-size: 2em; } /* Umum */
+    
+    #hero-section h1 { 
+        font-size: 3em; /* Mengurangi ukuran h1 di hero untuk layar <768px */
+    }
+    #hero-section p {
+        font-size: 1.2em;
+    }
+    .hero-buttons {
+        flex-direction: column; /* Tombol hero jadi tumpuk di bawah */
+        gap: var(--spacing-md);
+    }
+    .hero-buttons .button {
+        width: 100%; /* Tombol memenuhi lebar */
+    }
+
+    /* Perbaikan tumpang tindih di bagian About Us */
+    .about-content-grid {
+        grid-template-columns: 1fr; /* Pastikan satu kolom di mobile */
+        gap: var(--spacing-lg); /* Mengurangi gap agar lebih rapat */
+        padding: var(--spacing-md) 0; /* Tambahkan padding jika perlu */
+    }
+    .about-image {
+        order: -1; /* Pindah gambar ke atas di mobile untuk alur konten */
+        margin-bottom: var(--spacing-md); /* Spasi setelah gambar */
+    }
+    .about-text .button {
+        display: block; /* Pastikan tombol 'Pelajari Lebih Lanjut' jadi blok di mobile */
+        margin-top: var(--spacing-md); /* Spasi di atas tombol */
+        max-width: 250px; /* Batasi lebar tombol */
+        margin-left: auto; /* Pusatkan tombol */
+        margin-right: auto;
+    }
+
+
     .product-grid {
         grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+
+    .filter-section {
+        flex-direction: column; /* Filter jadi tumpuk */
+        align-items: stretch;
+    }
+    .filter-section label,
+    .filter-section select,
+    .filter-section input[type="text"],
+    .filter-section button {
+        width: 100%; /* Semua elemen filter memenuhi lebar */
+        max-width: none;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Penyesuaian khusus untuk layar mobile kecil */
+    h1 { font-size: 2em; } /* Umum */
+    h2 { font-size: 1.8em; } /* Umum */
+    h3 { font-size: 1.4em; } /* Umum */
+
+    #hero-section h1 { 
+        font-size: 2.5em; /* Ukuran h1 di hero untuk mobile kecil */
+        line-height: 1.3;
+    }
+    #hero-section p {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    .section-padded {
+        padding: var(--spacing-xl) 0; /* Mengurangi padding section */
+    }
+
+    .header-top {
+        padding: var(--spacing-sm); /* Mengurangi padding header */
+    }
+
+    .logo img {
+        height: 50px; /* Ukuran logo lebih kecil */
+    }
+    .logo-text {
+        font-size: 1.4em; /* Ukuran teks logo lebih kecil */
+    }
+
+    .content-card {
+        padding: var(--spacing-md); /* Mengurangi padding card */
+    }
+
+    .offer-steps-grid li {
+        flex-direction: column; /* Langkah penawaran jadi tumpuk */
+        text-align: center;
+        align-items: center;
+    }
+    .offer-steps-grid li .step-number {
+        margin-bottom: var(--spacing-xs);
+    }
+    .offer-steps-grid li .step-content h4 {
+        margin-top: 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Footer menjadi satu kolom */
+        text-align: center;
+    }
+    .footer-about .footer-logo,
+    .footer-contact p,
+    .social-icons {
+        justify-content: center; /* Konten footer tengah */
     }
 }
