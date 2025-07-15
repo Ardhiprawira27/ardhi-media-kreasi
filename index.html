@@ -2,142 +2,136 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT Ardhi Media Kreasi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ardhi Stationery Works</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
     body {
-      background-color: #f4f6f8;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
       color: #333;
-      line-height: 1.6;
     }
     header {
-      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      background-color: #1e3a8a;
       color: white;
-      padding: 40px 20px;
+      padding: 30px 20px;
       text-align: center;
-    }
-    header img {
-      max-width: 120px;
-      display: block;
-      margin: 0 auto 15px;
-    }
-    nav {
-      background: #ffffff;
-      padding: 10px 0;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav a {
-      margin: 0 15px;
-      color: #1e3a8a;
-      text-decoration: none;
-      font-weight: 600;
     }
     section {
       padding: 40px 20px;
-      max-width: 960px;
+      max-width: 1000px;
       margin: auto;
     }
     h2 {
       color: #1e3a8a;
       margin-bottom: 10px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
-    ul li {
-      background: #e0e7ff;
-      padding: 12px 20px;
+    .product {
+      background: #fff;
       border-radius: 8px;
-      margin-bottom: 10px;
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 15px;
+      text-align: center;
     }
-    ul li:hover {
-      background: #c7d2fe;
+    .product img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product h4 {
+      margin: 5px 0;
+      color: #1e3a8a;
+    }
+    .product p {
+      font-size: 14px;
+      color: #555;
     }
     footer {
       background: #1e3a8a;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       margin-top: 40px;
     }
-    .card {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
+    .download {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .download a {
+      background: #1e3a8a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .download a:hover {
+      background: #3749a1;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
-  <h1>PT Ardhi Media Kreasi</h1>
-  <p>Solusi Perdagangan Modern untuk Kebutuhan Instansi dan Perusahaan Anda</p>
+  <h1>Ardhi Stationery Works</h1>
+  <p>Pusat Kebutuhan Alat Tulis Kantor Anda</p>
 </header>
 
-<nav>
-  <a href="#tentang">Tentang</a>
-  <a href="#unit">Unit Bisnis</a>
-  <a href="#layanan">Layanan</a>
-  <a href="#kontak">Kontak</a>
-</nav>
+<section>
+  <h2>Tentang Toko Kami</h2>
+  <p>
+    Ardhi Stationery Works adalah unit bisnis dari PT Ardhi Media Kreasi yang fokus pada penyediaan alat tulis kantor (ATK) untuk instansi pemerintah dan perusahaan swasta. Kami menyediakan produk berkualitas dengan harga kompetitif dan pengiriman tepat waktu.
+  </p>
+</section>
 
-<section id="tentang">
-  <div class="card">
-    <h2>Tentang Kami</h2>
-    <p>Didirikan pada tahun 2022, PT Ardhi Media Kreasi adalah perusahaan legal yang berbasis di Bandar Lampung dan terdaftar di Kementerian Hukum dan HAM RI. Dengan NIB aktif dan cakupan usaha lintas sektor, kami hadir sebagai mitra pengadaan tepercaya bagi instansi pemerintah, swasta, dan korporasi.</p>
+<section>
+  <h2>Katalog Produk</h2>
+
+  <div class="download">
+    📥 <a href="Katalog_Ardhi_Stationery_Works.pdf" target="_blank">Unduh Katalog PDF</a>
+  </div>
+
+  <div class="catalog">
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150?text=Kertas+A4" alt="Kertas A4">
+      <h4>Kertas A4 70gsm</h4>
+      <p>Rp 50.000 / Rim</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150?text=Pulpen+Standar" alt="Pulpen">
+      <h4>Pulpen Standard AE7</h4>
+      <p>Rp 36.000 / Lusin</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150?text=Map+Folder" alt="Map">
+      <h4>Map Folder Snelhecter</h4>
+      <p>Rp 4.000 / Pcs</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150?text=Lakban" alt="Lakban">
+      <h4>Lakban Coklat 2 inch</h4>
+      <p>Rp 8.000 / Roll</p>
+    </div>
   </div>
 </section>
 
-<section id="unit">
-  <div class="card">
-    <h2>Unit Bisnis</h2>
-    <ul>
-      <li><strong>Ardhi Stationery Works</strong><br/>Penyedia ATK untuk kebutuhan rutin instansi dan perusahaan</li>
-      <li><strong>Jasa (Fee) atau Kontrak</strong> - <em>Soon</em></li>
-      <li><strong>Perlengkapan dan Komputer</strong> - <em>Soon</em></li>
-      <li><strong>Pakaian</strong> - <em>Soon</em></li>
-    </ul>
-  </div>
-</section>
-
-<section id="layanan">
-  <div class="card">
-    <h2>Layanan Kami</h2>
-    <p>Kami melayani berbagai kebutuhan pengadaan barang untuk instansi dan perusahaan:</p>
-    <ul>
-      <li>Alat Tulis Kantor (ATK)</li>
-      <li>Perlengkapan Komputer & Aksesori</li>
-      <li>Pakaian & Seragam Kantor</li>
-      <li>Merchandise dan Produk Custom</li>
-    </ul>
-  </div>
-</section>
-
-<section id="kontak">
-  <div class="card">
-    <h2>Kontak Kami</h2>
-    <p>
-      📍 Jl. Wolter Monginsidi Gg Hi. Abdullah No. 19A, Bandar Lampung<br/>
-      📧 Email: <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a><br/>
-      📞 WhatsApp: <a href="https://wa.me/628978367750" target="_blank">0897-8367-750</a>
-    </p>
-  </div>
+<section>
+  <h2>Hubungi Kami</h2>
+  <p>
+    Untuk pemesanan atau penawaran harga, silakan hubungi kami:<br>
+    📧 Email: ardhi_mediakreasi@yahoo.com<br>
+    📞 WhatsApp: <a href="https://wa.me/628978367750" target="_blank">0897-8367-750</a>
+  </p>
 </section>
 
 <footer>
-  <p>&copy; 2025 PT Ardhi Media Kreasi. All rights reserved.</p>
+  <p>&copy; 2025 Ardhi Stationery Works. Powered by PT Ardhi Media Kreasi.</p>
 </footer>
 
 </body>
