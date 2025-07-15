@@ -1,371 +1,108 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT Ardhi Media Kreasi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
-    body {
-      background-color: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(90deg, #001F3F, #0074D9);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      flex-wrap: wrap;
-    }
-    header .logo {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    header .logo img {
-      width: 50px;
-      height: auto;
-      border-radius: 8px;
-    }
-    header .logo-text {
-      font-size: 20px;
-      font-weight: bold;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .desktop-menu {
-      display: flex;
-      gap: 30px;
-      position: relative;
-    }
-    .desktop-menu a {
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 15px;
-      transition: color 0.3s;
-      position: relative;
-    }
-    .desktop-menu a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #fff;
-      transition: width 0.3s ease-in-out;
-    }
-    .desktop-menu a:hover::after {
-      width: 100%;
-    }
-    #hamburgerBtn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 22px;
-      display: block;
-      transition: transform 0.3s ease-in-out;
-    }
-    #mobileMenu {
-      display: none;
-      flex-direction: column;
-      padding: 10px 0;
-      background: rgba(0, 31, 63, 0.9);
-      text-align: right;
-      width: 100%;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      backdrop-filter: blur(6px);
-    }
-    #mobileMenu a {
-      padding: 10px 20px;
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.3s, padding-left 0.3s;
-    }
-    #mobileMenu a:hover {
-      background: #003366;
-      padding-left: 30px;
-    }
-    
-      #hamburgerBtn {
-        display: block;
-      }
-    }
-    section {
-      padding: 60px 30px;
-      max-width: 960px;
-      margin: 60px auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    section h2 {
-      color: #1e40af;
-      margin-bottom: 15px;
-    }
-    .soon-box, .legal-box {
-      background: #f1f5f9;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    .soon-box ul, .legal-box ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .soon-box li, .legal-box li {
-      padding: 5px 0;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 10px;
-      background: linear-gradient(to right, #3b82f6, #2563eb);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s ease;
-    }
-    a.button:hover {
-      background: linear-gradient(to right, #2563eb, #1d4ed8);
-    }
-    .visitor-counter {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 40px;
-      color: #666;
-    }
-  .main-container {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 40px 24px;
-    }
-  
-    .desktop-menu {
-      display: flex;
-      gap: 30px;
-      position: relative;
-      align-items: center;
-    }
-
-    @media (max-width: 768px) {
-      .desktop-menu a {
-        display: none;
-      }
-      #hamburgerBtn {
-        display: block !important;
-      }
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT Ardhi Media Kreasi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
-      <div class="logo-text">PT Ardhi<br>Media Kreasi</div>
-    </div>
-    <div class="desktop-menu">
-      <a href="profil.html"><i class="fas fa-building"></i> Profil</a>
-      <a href="unit.html"><i class="fas fa-box"></i> Unit Bisnis</a>
-      <a href="klien.html"><i class="fas fa-handshake"></i> Klien</a>
-      <a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a>
-      <button onclick="toggleMobileMenu()" id="hamburgerBtn">☰</button>
-    </div>
-  </header>
-<div class="main-container">
+  <header>
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+      <div class="logo-text">PT Ardhi<br>Media Kreasi</div>
+    </a>
+    <nav class="desktop-menu">
+      <a href="#profil">Profil</a>
+      <a href="#unit">Unit Bisnis</a>
+      <a href="#klien">Klien</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
 
-  <!-- Banner Header with Hero Text -->
-  <div style="position: relative; width: 100%; overflow: hidden;">
-    <img src="atk-banner.jpg" alt="ATK Banner" style="width: 100%; height: auto; display: block;">
-    <div style="position: absolute; top: 30%; left: 40px; color: white; z-index: 10; max-width: 600px;">
-      <h1 style="font-size: 36px; font-weight: bold; text-shadow: 1px 1px 5px rgba(0,0,0,0.6);">Solusi ATK & Perlengkapan Perusahaan</h1>
-      <p style="font-size: 18px; margin-top: 10px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">PT Ardhi Media Kreasi siap menjadi mitra pengadaan Anda</p>
-      <a href="unit.html" style="margin-top: 20px; display: inline-block; background: #facc15; color: #1e293b; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">Lihat Produk Kami</a>
-    </div>
-  </div>
-  <div id="mobileMenu">
-    <a href="profil.html"><i class="fas fa-building"></i> Profil</a>
-    <a href="unit.html"><i class="fas fa-box"></i> Unit Bisnis</a>
-    <a href="klien.html"><i class="fas fa-handshake"></i> Klien</a>
-    <a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a>
-  <!-- Scroll to Top Button -->
-  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" title="Kembali ke atas" style="position: fixed; bottom: 30px; right: 30px; padding: 12px 16px; font-size: 16px; background: #1e40af; color: white; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 999;">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  <main>
+    <section id="hero" data-aos="zoom-in">
+      <div class="hero-content">
+        <h1 class="animate__animated animate__fadeInDown">Selamat Datang di PT Ardhi Media Kreasi</h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">Solusi Pengadaan Kantor, ATK, dan Jasa Profesional</p>
+        <a href="#unit" class="button animate__animated animate__zoomIn animate__delay-2s">Lihat Unit Bisnis <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
 
-  <!-- Footer Section -->
-  <footer style="margin-top: 60px; padding: 30px; text-align: center; background: #1e293b; color: white;">
-    <div style="margin-bottom: 15px;">
-      <img src="logo.png" alt="Logo Kecil" style="width: 40px; vertical-align: middle; border-radius: 6px;"> <span style="font-weight: bold; margin-left: 10px;">PT Ardhi Media Kreasi</span>
-    </div>
-    <div style="margin-bottom: 10px;">
-      <a href="#" style="margin: 0 10px; color: #60a5fa;"><i class="fab fa-facebook"></i></a>
-      <a href="#" style="margin: 0 10px; color: #60a5fa;"><i class="fab fa-instagram"></i></a>
-      <a href="#" style="margin: 0 10px; color: #60a5fa;"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <div>&copy; 2025 PT Ardhi Media Kreasi. All rights reserved.</div>
-  </footer>
+    <section id="profil" data-aos="fade-up">
+      <article class="content-card">
+        <h2><i class="fas fa-building icon-blue"></i> Profil Perusahaan</h2>
+        <p>PT Ardhi Media Kreasi adalah badan usaha resmi berbentuk Perseroan Perorangan yang berdiri sejak 2022 di Bandar Lampung. Kami bergerak dalam pengadaan alat tulis kantor, perlengkapan komputer, pakaian, serta layanan jasa untuk kebutuhan instansi dan korporasi.</p>
+      </article>
+    </section>
 
-</div>
+    <section id="unit" data-aos="fade-up">
+      <article class="content-card">
+        <h2><i class="fas fa-briefcase icon-blue"></i> Unit Bisnis</h2>
+        <p>Kami memiliki berbagai unit bisnis aktif dan yang sedang dikembangkan, termasuk Ardhi Stationery Works sebagai penyedia alat tulis kantor profesional.</p>
+        <div class="soon-box">
+          <h3><i class="fas fa-hourglass-half"></i> Segera Hadir:</h3>
+          <ul>
+            <li><i class="fas fa-cogs"></i> Jasa (Fee) atau Kontrak</li>
+            <li><i class="fas fa-desktop"></i> Perlengkapan dan Komputer</li>
+            <li><i class="fas fa-tshirt"></i> Pakaian</li>
+          </ul>
+        </div>
+      </article>
+    </section>
 
-<script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const btn = document.getElementById('hamburgerBtn');
-      if (menu.style.display === 'flex') {
-        menu.style.opacity = '0';
-        menu.style.transform = 'translateY(-10px)';
-        setTimeout(() => { menu.style.display = 'none'; }, 300);
-        btn.innerHTML = '☰';
-      } else {
-        menu.style.display = 'flex';
-        setTimeout(() => {
-          menu.style.opacity = '1';
-          menu.style.transform = 'translateY(0)';
-        }, 10);
-        btn.innerHTML = '✕';
-      }
-    }
+    <section id="klien" data-aos="fade-up">
+      <article class="content-card">
+        <h2><i class="fas fa-handshake icon-blue"></i> Klien Kami</h2>
+        <p>Kami dipercaya oleh instansi pemerintahan dan swasta, salah satunya KPP Pratama Bandar Lampung untuk pengadaan ATK rutin sejak 2024.</p>
+        <div class="client-logo-container">
+          <img src="kpp-logo.png" alt="Logo KPP Pratama Bandar Lampung" class="client-logo" data-aos="zoom-in" data-aos-delay="300">
+                  </div>
+      </article>
+    </section>
 
-    window.addEventListener('resize', () => {
-      const btn = document.getElementById('hamburgerBtn');
-      const menu = document.getElementById('mobileMenu');
-      if (window.innerWidth < 768) {
-        btn.style.display = 'block';
-        menu.style.display = 'none';
-        btn.innerHTML = '☰';
-      } else {
-        btn.style.display = 'none';
-        menu.style.display = 'none';
-      }
-    });
-  </script>
+    <section id="kontak" data-aos="fade-up">
+      <article class="content-card">
+        <h2><i class="fas fa-envelope icon-blue"></i> Kontak Kami</h2>
+        <p><i class="fas fa-at"></i> Email: <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a></p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/628978367750">0897-8367-750</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Wolter Monginsidi Gg Hi. Abdullah No. 19A, Bandar Lampung</p>
+      </article>
+    </section>
+    
+    <aside class="legal-box content-card" data-aos="fade-up">
+      <h2><i class="fas fa-file-contract icon-blue"></i> Legalitas Usaha</h2>
+      <ul>
+        <li><i class="fas fa-id-card"></i> NIB OSS-RBA: 0306220004813</li>
+        <li><i class="fas fa-file-invoice"></i> NPWP: 65.473.663.6-307.000</li>
+        <li><i class="fas fa-certificate"></i> Sertifikat AHU: AHU-019447.AH.01.30.Tahun 2022</li>
+        <li><i class="fas fa-chart-pie"></i> Skala Usaha: Mikro</li>
+        <li><i class="fas fa-city"></i> Domisili: Bandar Lampung</li>
+      </ul>
+    </aside>
+  </main>
 
-  <section>
-    <h2>Profil Perusahaan</h2>
-    <p>PT Ardhi Media Kreasi adalah badan usaha resmi berbentuk Perseroan Perorangan yang berdiri sejak 2022 di Bandar Lampung. Kami bergerak dalam pengadaan alat tulis kantor, perlengkapan komputer, pakaian, serta layanan jasa untuk kebutuhan instansi dan korporasi.</p>
-    <a class="button" href="profil.html">Selengkapnya</a>
-  </section>
+  <footer>
+    <div class="footer-brand">
+      <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+      <span>PT Ardhi Media Kreasi</span>
+    </div>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p class="copyright">&copy; 2025 PT Ardhi Media Kreasi. Hak cipta dilindungi.</p>
+  </footer>
 
-  <section>
-    <h2>Unit Bisnis</h2>
-    <p>Kami memiliki berbagai unit bisnis aktif dan yang sedang dikembangkan, termasuk Ardhi Stationery Works sebagai penyedia alat tulis kantor profesional.</p>
-    <a class="button" href="unit.html">Lihat Semua Unit</a>
-  </section>
+  <button id="scroll-top-btn" title="Kembali ke atas">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-  <section class="soon-box" style="background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); margin: 60px auto; max-width: 960px; padding: 40px 30px;">
-    <h2>Segera Hadir</h2>
-    <ul>
-      <li>Jasa (Fee) atau Kontrak – <em>Sebentar lagi</em></li>
-      <li>Perlengkapan dan Komputer – <em>Sebentar lagi</em></li>
-      <li>Pakaian – <em>Sebentar lagi</em></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Klien Kami</h2>
-    <p>Kami dipercaya oleh instansi pemerintahan dan swasta, salah satunya KPP Pratama Bandar Lampung untuk pengadaan ATK rutin sejak 2024.</p>
-    <a class="button" href="klien.html">Lihat Klien</a>
-  </section>
-
-  <section>
-    <h2>Mengapa Memilih Kami?</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-top: 20px;">
-      <div style="flex: 1; min-width: 250px; background: #f1f5f9; padding: 20px; border-radius: 10px; text-align: center;">
-        <i class="fas fa-check-circle" style="font-size: 30px; color: #3b82f6;"></i>
-        <h3>Legal & Terpercaya</h3>
-        <p>Terdaftar resmi OSS-RBA, NPWP & AHU.</p>
-      </div>
-      <div style="flex: 1; min-width: 250px; background: #f1f5f9; padding: 20px; border-radius: 10px; text-align: center;">
-        <i class="fas fa-tags" style="font-size: 30px; color: #3b82f6;"></i>
-        <h3>Harga Kompetitif</h3>
-        <p>Memberikan penawaran terbaik untuk pengadaan rutin.</p>
-      </div>
-      <div style="flex: 1; min-width: 250px; background: #f1f5f9; padding: 20px; border-radius: 10px; text-align: center;">
-        <i class="fas fa-boxes" style="font-size: 30px; color: #3b82f6;"></i>
-        <h3>Produk Lengkap</h3>
-        <p>Dari ATK, komputer, hingga kebutuhan kantor lainnya.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="legal-box" style="background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); margin: 60px auto; max-width: 960px; padding: 40px 30px;">
-  <h2>Legalitas Usaha</h2>
-  <ul>
-    <li>NIB OSS-RBA: 0306220004813</li>
-    <li>NPWP: 65.473.663.6-307.000</li>
-    <li>Sertifikat AHU: AHU-019447.AH.01.30.Tahun 2022</li>
-    <li>Skala Usaha: Mikro</li>
-    <li>Domisili: Bandar Lampung</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Kontak Kami</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-top: 20px;">
-    <div style="flex: 1; min-width: 280px; background: #f1f5f9; padding: 20px; border-radius: 10px; text-align: left;">
-      <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #3b82f6;"></i>
-      <h3 style="margin: 10px 0 5px;">Alamat</h3>
-      <p>Jl. Wolter Monginsidi Gg Hi. Abdullah No. 19A, Bandar Lampung</p>
-    </div>
-    <div style="flex: 1; min-width: 280px; background: #f1f5f9; padding: 20px; border-radius: 10px; text-align: left;">
-      <i class="fas fa-envelope" style="font-size: 24px; color: #3b82f6;"></i>
-      <h3 style="margin: 10px 0 5px;">Email</h3>
-      <p><a href="mailto:ardhi_mediakreasi@yahoo.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">ardhi_mediakreasi@yahoo.com</a></p>
-    </div>
-    <div style="flex: 1; min-width: 280px; background: #f1f5f9; padding: 20px; border-radius: 10px; text-align: left;">
-      <i class="fab fa-whatsapp" style="font-size: 24px; color: #3b82f6;"></i>
-      <h3 style="margin: 10px 0 5px;">WhatsApp</h3>
-      <p><a href="https://wa.me/628978367750" target="_blank" style="color: #22c55e; text-decoration: none; font-weight: bold;">0897-8367-750</a></p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Dapatkan Penawaran</h2>
-  <p>Isi data Anda agar kami dapat mengirimkan penawaran langsung melalui WhatsApp atau email.</p>
-  <form action="mailto:ardhi_mediakreasi@yahoo.com" method="post" enctype="text/plain" style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
-    <input type="text" name="Nama" placeholder="Nama Lengkap" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
-    <input type="email" name="Email" placeholder="Email Anda" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
-    <input type="tel" name="WhatsApp" placeholder="Nomor WhatsApp" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
-    <textarea name="Kebutuhan" rows="4" placeholder="Tuliskan kebutuhan Anda di sini..." style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
-    <button type="submit" style="padding: 12px 20px; background: #2563eb; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Kirim Penawaran</button>
-  </form>
-</section>
-
-  <section>
-    <h2>Testimoni Klien</h2>
-    <div style="background: #f9fafb; padding: 20px; border-left: 5px solid #3b82f6; font-style: italic;">
-      “PT Ardhi Media Kreasi sangat responsif dan cepat dalam proses pengadaan ATK kami.” <br><strong>- KPP Pratama Bandar Lampung</strong>
-    </div>
-  </section>
-
-  <div class="visitor-counter">
-    Total Kunjungan Anda: <span id="visitorCount">0</span>
-  </div>
-
-  </div>
-
-  <script>
-    const container = document.querySelector('.main-container');
-    container.style.transition = 'all 0.3s ease';
-let visitorCount = localStorage.getItem('visitorCount');
-    if (!visitorCount) {
-      visitorCount = 1;
-    } else {
-      visitorCount = parseInt(visitorCount) + 1;
-    }
-    localStorage.setItem('visitorCount', visitorCount);
-    document.getElementById('visitorCount').textContent = visitorCount;
-  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="script.js"></script>
+</body>
+</html>
