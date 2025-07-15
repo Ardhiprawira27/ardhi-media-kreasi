@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Inisialisasi AOS (Animate On Scroll)
     AOS.init({
-        duration: 1000,     // Durasi animasi (ms)
+        duration: 1000,      // Durasi animasi (ms)
         easing: 'ease-in-out', // Easing default
-        once: true,         // Animasi hanya sekali saat scroll ke elemen
-        mirror: false,      // Animasi hanya saat scrolling ke bawah
+        once: true,          // Animasi hanya sekali saat scroll ke elemen
+        mirror: false,       // Animasi hanya saat scrolling ke bawah
     });
 
     // --- Hamburger Menu Functionality ---
@@ -133,5 +133,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initial filter on page load
         filterProducts();
     }
-
 });
