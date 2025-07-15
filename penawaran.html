@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajukan Penawaran - PT Ardhi Media Kreasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+                <div class="logo-text">PT Ardhi<br>Media Kreasi</div>
+            </a>
+            <nav class="desktop-nav">
+                <a href="profil.html">Profil</a>
+                <a href="unit-bisnis.html">Unit Bisnis</a>
+                <a href="klien.html">Klien</a>
+                <a href="penawaran.html" class="active">Penawaran</a>
+                <a href="kontak.html">Kontak</a>
+            </nav>
+            <button class="hamburger-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+        <div class="hero-content-in-header" data-aos="fade-in">
+            <h1 class="animate__animated animate__fadeInDown">Ajukan Penawaran</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                <i class="fas fa-file-invoice-dollar hero-icon animate__animated animate__pulse animate__infinite"></i> Dapatkan Solusi Pengadaan Terbaik untuk Kebutuhan Anda
+            </p>
+        </div>
+    </header>
+
+    <nav id="mobile-nav-overlay">
+        <button class="close-btn" aria-label="Close Navigation Menu">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="unit-bisnis.html">Unit Bisnis</a></li>
+            <li><a href="klien.html">Klien</a></li>
+            <li><a href="penawaran.html" class="active">Penawaran</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+        <div class="mobile-nav-info">
+            <p><i class="fas fa-phone-alt"></i> 0897-8367-750</p>
+            <p><i class="fas fa-envelope"></i> ardhi_mediakreasi@yahoo.com</p>
+        </div>
+    </nav>
+
+    <main>
+        <section id="offer-process" class="section-padded">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Proses Penawaran Mudah Kami</h2>
+                    <p class="subtitle">Kami memastikan proses pengajuan penawaran Anda berjalan lancar dan efisien.</p>
+                </div>
+                
+                <ul class="offer-steps-grid">
+                    <li data-aos="fade-up" data-aos-delay="100">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>Isi Formulir Permintaan</h4>
+                            <p>Sertakan detail kebutuhan barang atau jasa yang Anda inginkan pada formulir di bawah ini.</p>
+                        </div>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="200">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>Review & Verifikasi</h4>
+                            <p>Tim kami akan meninjau permintaan Anda dan mungkin menghubungi untuk detail lebih lanjut.</p>
+                        </div>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="300">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>Penawaran Harga</h4>
+                            <p>Kami akan mengirimkan penawaran harga kompetitif yang disesuaikan dengan kebutuhan Anda.</p>
+                        </div>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="400">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>Negosiasi & Kesepakatan</h4>
+                            <p>Lakukan negosiasi jika diperlukan, hingga tercapai kesepakatan yang saling menguntungkan.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="offer-form-container" data-aos="fade-up" data-aos-delay="500">
+                    <h2><i class="fas fa-clipboard-list icon-accent"></i> Formulir Permintaan Penawaran</h2>
+                    <p class="form-description">Silakan isi formulir di bawah ini dengan detail kebutuhan pengadaan barang atau jasa Anda. Semakin detail informasi yang Anda berikan, semakin akurat penawaran yang dapat kami sampaikan.</p>
+
+                    <form id="offer-request-form">
+                        <div class="form-group">
+                            <label for="company-name">Nama Instansi / Perusahaan <span class="required">*</span></label>
+                            <input type="text" id="company-name" name="company_name" required placeholder="Contoh: PT ABC Solusi">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">Nama Penanggung Jawab <span class="required">*</span></label>
+                            <input type="text" id="contact-person" name="contact_person" required placeholder="Contoh: Budi Santoso">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="Contoh: nama@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Contoh: 081234567890">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Alamat (Opsional)</label>
+                            <input type="text" id="address" name="address" placeholder="Contoh: Jl. Raya Kebon Jeruk No. 10">
+                        </div>
+                        <div class="form-group">
+                            <label for="requirements">Detail Kebutuhan Barang/Jasa <span class="required">*</span></label>
+                            <textarea id="requirements" name="requirements" rows="8" required placeholder="Jelaskan secara rinci kebutuhan Anda: jenis barang/jasa, spesifikasi, jumlah, atau deskripsi proyek."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline">Batas Waktu Pengadaan (Opsional)</label>
+                            <input type="text" id="deadline" name="deadline" placeholder="Contoh: Akhir Bulan Juli 2025 atau Secepatnya">
+                        </div>
+                        <button type="submit" class="button button-submit">Kirim Permintaan Penawaran <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-promo" class="section-padded section-cta">
+            <div class="container" data-aos="fade-up">
+                <h2>Ada Pertanyaan Lebih Lanjut?</h2>
+                <p>Jangan ragu untuk menghubungi tim kami secara langsung jika Anda memiliki pertanyaan atau memerlukan bantuan.</p>
+                <div class="cta-buttons">
+                    <a href="kontak.html" class="button button-white-fill">Hubungi Kami <i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about" data-aos="fade-up">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+                        <span>PT Ardhi Media Kreasi</span>
+                    </div>
+                    <p>Mitra terpercaya Anda dalam pengadaan barang dan jasa berkualitas untuk instansi dan perusahaan.</p>
+                </div>
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+    <h3>Navigasi</h3>
+    <ul>
+        <li><a href="profil.html">Profil Perusahaan</a></li>
+        <li><a href="unit-bisnis.html">Unit Bisnis</a></li>
+        <li><a href="klien.html">Daftar Klien</a></li>
+        <li><a href="penawaran.html">Ajukan Penawaran</a></li>
+        <li><a href="kontak.html">Kontak Kami</a></li>
+        <li><a href="privacy-policy.html">Kebijakan Privasi</a></li>
+    </ul>
+</div>
+               <div class="footer-contact" data-aos="fade-up" data-aos-delay="200">
+    <h3>Kontak Kami</h3>
+    <p><i class="fas fa-map-marker-alt"></i> JI Wolter Monginsidi Gg Hi. Abdullah No 19A, Pengajaran, Telukbetung Utara, Bandar Lampung</p>
+    <p><i class="fas fa-phone-alt"></i> <a href="tel:+628978367750">0897-8367-750</a></p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a></p>
+</div>
+<div class="footer-social" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 PT Ardhi Media Kreasi. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scroll-top-btn" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

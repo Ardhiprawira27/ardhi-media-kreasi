@@ -1,578 +1,1848 @@
+/* Google Fonts - Open Sans dan Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
 :root {
-    /* Colors */
-    --primary-dark: #1A202C; /* Darker background/text, modern feel */
-    --primary-blue: #2A65FF; /* Bold primary blue */
-    --accent-orange: #FF5722; /* Vibrant orange accent for dynamism */
-    --text-light: #F8FAFC; /* Near white for text on dark backgrounds */
-    --text-dark: #2D3748; /* Dark grey for body text */
-    --bg-light: #FFFFFF; /* Clean white background for cards */
-    --bg-subtle: #F0F4F8; /* Light grey for subtle backgrounds */
-    --link-hover: #1E40AF; /* Darker blue for link hover */
-    --form-border: #E2E8F0; /* Light border for form elements */
+    /* Warna Palette Baru */
+    --primary-green: #388E3C;   /* Hijau Utama yang lebih gelap, kuat */
+    --primary-light-green: #66BB6A; /* Hijau muda untuk aksen atau hover */
+    --primary-dark: #263238;    /* Dark Blue-Grey untuk teks gelap/background header */
+    --text-dark: #424242;       /* Teks Umum Gelap */
+    --text-light: #ffffff;      /* Teks Terang */
+    --bg-light: #f5f5f5;        /* Background sangat cerah */
+    --bg-subtle: #e0e0e0;       /* Background sedikit lebih gelap, abu-abu */
+    --accent-gold: #FFB300;     /* Emas yang cerah */
+    --link-hover: #1B5E20;      /* Hover link/button primary yang lebih gelap */
+    --form-border: #bdbdbd;     /* Border form input */
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Shadow yang lebih lembut */
+    --shadow-medium: rgba(0, 0, 0, 0.15); /* Shadow yang lebih kuat */
 
-    /* Fonts */
-    --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-heading: 'Poppins', sans-serif; /* Uncomment jika pakai Google Fonts */
+    /* Font Families */
+    --font-body: 'Open Sans', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
 
-    /* Transitions */
-    --transition-speed: 0.3s;
-    --transition-ease: ease-in-out;
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 50px;
+    --spacing-xxl: 80px;
+
+    /* Border Radius */
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); */
-
-/* General Styles */
-* {
+/* Base & Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-sans);
-    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-subtle);
+    font-family: var(--font-body);
+    line-height: 1.7; /* Sedikit lebih lega */
     color: var(--text-dark);
-    line-height: 1.7;
-    overflow-x: hidden; /* Pertahankan ini agar tidak ada scrollbar horizontal yang tidak diinginkan */
+    background-color: var(--bg-light);
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Mencegah horizontal scroll saat AOS */
 }
 
-/* html.no-scroll, body.no-scroll DIHAPUS (karena tidak ada mobile menu) */
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
 
-/* Header - Gabungan Header & Hero */
-#main-header {
-    background: linear-gradient(135deg, rgba(26, 32, 44, 0.9) 0%, rgba(26, 32, 44, 0.8) 50%, rgba(42, 101, 255, 0.5) 100%), url('banner-atk.jpg') center/cover no-repeat;
-    background-blend-mode: multiply;
-    background-attachment: fixed;
-    padding: 20px 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    position: relative;
-    z-index: 999;
-    min-height: 450px;
+h1 { font-size: 3.5em; font-weight: 700;}
+h2 { font-size: 2.5em; font-weight: 600;}
+h3 { font-size: 1.8em; font-weight: 600;}
+h4 { font-size: 1.4em; font-weight: 600;}
+
+p {
+    margin-bottom: var(--spacing-md); /* Lebih banyak spasi antar paragraf */
+    font-size: 1.05em; /* Sedikit lebih besar */
+}
+
+a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: var(--spacing-xs);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px; /* Lebih banyak gap untuk ikon list */
+}
+
+ul li .fas, ul li .far, ul li .fab {
+    color: var(--primary-green);
+    margin-top: 5px; /* Adjust icon vertical alignment */
+    font-size: 1.1em; /* Ukuran ikon di list */
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section-padded {
+    padding: var(--spacing-xxl) 0; /* Padding section yang lebih besar */
+}
+
+.section-bg-light {
+    background-color: var(--bg-subtle);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-green);
+    border-radius: 2px;
+}
+
+.section-header .subtitle {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.icon-accent {
+    color: var(--primary-green);
+    margin-right: var(--spacing-sm);
+}
+
+.button, .button-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 14px 30px; /* Padding lebih besar */
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.button:hover, .button-submit:hover {
+    background-color: var(--link-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.button-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+    box-shadow: none;
+}
+
+.button-outline:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.button-white-outline {
+    background-color: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    box-shadow: none;
+}
+
+.button-white-outline:hover {
+    background-color: var(--text-light);
+    color: var(--primary-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.button-white-fill {
+    background-color: var(--text-light);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.button-white-fill:hover {
+    background-color: var(--bg-subtle); /* Sedikit gelap saat hover */
+    color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+
+.link-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    color: var(--primary-green);
+    margin-top: var(--spacing-sm);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.link-more:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+    transform: translateX(5px);
+}
+
+.required {
+    color: red;
+    margin-left: 3px;
+}
+
+
+/* --- Header --- */
+#main-header {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .header-top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Untuk menempatkan logo di kiri dan menu di kanan */
-    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md); /* Padding atas/bawah untuk header-top */
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: var(--spacing-sm);
     text-decoration: none;
-    transition: transform var(--transition-speed) var(--transition-ease);
-}
-
-.logo:hover {
-    transform: scale(1.05);
+    color: var(--text-light);
 }
 
 .logo img {
-    width: 50px;
-    height: auto;
-    border-radius: 8px;
-    filter: invert(1);
+    height: 55px; /* Ukuran logo */
+    width: auto;
 }
 
 .logo-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--text-light);
-    line-height: 1.2;
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
 }
 
-/* Desktop Menu (Sekarang default untuk semua ukuran) */
-.desktop-menu {
-    display: flex; /* Selalu tampil */
-    gap: 30px;
-    align-items: center;
+.desktop-nav {
+    display: flex;
+    gap: var(--spacing-lg);
 }
 
-.desktop-menu a {
+.desktop-nav a {
     color: var(--text-light);
     font-weight: 600;
-    text-decoration: none;
-    font-size: 15px;
+    padding: var(--spacing-xs) 0;
     position: relative;
-    padding: 5px 0;
-    transition: color var(--transition-speed) var(--transition-ease);
-    white-space: nowrap; /* Mencegah teks menu pecah baris */
+    transition: color 0.3s ease;
 }
 
-.desktop-menu a::after {
-    content: "";
+.desktop-nav a::after {
+    content: '';
     position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -8px;
+    bottom: -5px; /* Sedikit di bawah teks */
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--accent-orange);
-    transition: width var(--transition-speed) var(--transition-ease);
+    width: 0;
+    height: 3px; /* Garis lebih tebal */
+    background-color: var(--accent-gold);
+    transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
-.desktop-menu a:hover,
-.desktop-menu a:focus {
-    color: var(--accent-orange);
-}
-
-.desktop-menu a:hover::after,
-.desktop-menu a:focus::after {
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
     width: 100%;
 }
 
-/* Hero Content in Header */
+.desktop-nav a:hover,
+.desktop-nav a.active {
+    color: var(--accent-gold);
+}
+
+.hamburger-toggle {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    z-index: 200;
+}
+
+.hamburger-toggle .bar {
+    display: block;
+    width: 30px; /* Sedikit lebih besar */
+    height: 4px; /* Lebih tebal */
+    background-color: var(--text-light);
+    margin: 6px 0; /* Lebih banyak spasi antar bar */
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hero Section (Home Page Only) */
+#hero-section {
+    background: linear-gradient(rgba(38, 50, 56, 0.8), rgba(38, 50, 56, 0.8)), url('hero-bg.jpg') no-repeat center center/cover;
+    color: var(--text-light);
+    text-align: center;
+    padding: 150px var(--spacing-md);
+    position: relative;
+    z-index: 1;
+    height: 70vh; /* Minimum height for visual impact */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero-section .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#hero-section h1 {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+    font-size: 4em; /* Lebih besar dari h1 default */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+}
+
+#hero-section p {
+    font-size: 1.6em; /* Lebih besar dari p default */
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+#hero-section .hero-icon {
+    font-size: 1.8em;
+    color: var(--accent-gold);
+    margin-right: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.hero-buttons .button {
+    min-width: 220px;
+}
+
+/* Hero Content in Header (for other pages) */
 .hero-content-in-header {
     text-align: center;
-    color: white;
+    padding: 80px var(--spacing-md) 40px; /* Padding bawah lebih kecil */
     max-width: 800px;
-    margin: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    margin: 0 auto;
+    color: var(--text-light);
+    background: linear-gradient(rgba(38, 50, 56, 0.8), rgba(38, 50, 56, 0.8)); /* Overlay gelap */
 }
 
 .hero-content-in-header h1 {
-    font-family: var(--font-heading, var(--font-sans));
-    font-size: clamp(32px, 6vw, 48px);
-    margin-bottom: 25px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
     color: var(--text-light);
-    line-height: 1.2;
+    font-size: 3.5em; /* Sesuaikan dengan home page h1 */
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .hero-content-in-header p {
-    font-size: clamp(18px, 2.5vw, 22px);
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 1.5;
     margin-bottom: 0;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
-/* Main Content Sections */
-main {
+.hero-content-in-header .hero-icon {
+    font-size: 1.6em;
+    color: var(--accent-gold);
+    margin-right: 10px;
+}
+
+
+/* Mobile Navigation Overlay */
+#mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-dark);
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding-top: 40px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%); /* Sembunyikan secara default */
+    transition: transform 0.4s ease-in-out;
+    z-index: 150;
+    padding: var(--spacing-xl);
 }
 
-section, aside {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 30px;
+#mobile-nav-overlay.open {
+    transform: translateX(0);
 }
 
-/* Card Styling for Sections */
-.content-card {
-    background: var(--bg-light);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    padding: 50px;
+.close-btn {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: 2.8em; /* Ukuran tombol close lebih besar */
+    color: var(--text-light);
+    cursor: pointer;
+    z-index: 200;
 }
 
-.content-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
 }
 
-h2 {
-    font-family: var(--font-heading, var(--font-sans));
-    color: var(--primary-blue);
-    margin-bottom: 25px;
+.mobile-nav-links li {
+    margin-bottom: var(--spacing-md);
+}
+
+.mobile-nav-links a {
+    color: var(--text-light);
+    font-size: 2em; /* Ukuran teks link lebih besar */
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+    color: var(--accent-gold);
+}
+
+.mobile-nav-info {
+    text-align: center;
+    color: var(--bg-subtle);
+    font-size: 1.1em;
+}
+
+.mobile-nav-info p {
+    margin-bottom: var(--spacing-sm);
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: clamp(24px, 4vw, 32px);
-    font-weight: 700;
+    gap: 10px;
+    justify-content: center; /* Center contact info */
 }
 
-/* Link "Selengkapnya" */
-.link-selengkapnya {
-    display: inline-flex;
+.mobile-nav-info .fas,
+.mobile-nav-info .fab {
+    color: var(--primary-green);
+}
+
+/* Hamburger animation */
+.hamburger-toggle.open .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-toggle.open .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Disable body scroll when mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* --- Main Content Area --- */
+main {
+    /* Removed padding here, use .section-padded */
+}
+
+.content-card {
+    background-color: var(--text-light); /* Background putih bersih */
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 40px var(--shadow-medium); /* Shadow lebih kuat */
+    padding: var(--spacing-xl); /* Padding lebih besar */
+    margin-bottom: var(--spacing-xl); /* Margin antar card */
+}
+
+.content-card p {
+    margin-bottom: var(--spacing-md);
+}
+
+.content-card h2 {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: var(--spacing-sm);
+    display: flex;
     align-items: center;
-    gap: 5px;
-    margin-top: 20px;
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color var(--transition-speed) ease, transform 0.2s ease;
+    gap: 10px;
 }
 
-.link-selengkapnya:hover {
-    color: var(--accent-orange);
-    transform: translateX(5px);
+.content-card h3 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.link-selengkapnya .fas {
-    font-size: 0.8em;
+/* About Us Section (Home Page) */
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default for mobile */
+    gap: var(--spacing-xl);
+    align-items: center;
 }
 
-/* Inline Link (misal: Ardhi Stationery Works) */
-.inline-link {
-    color: var(--primary-blue);
-    text-decoration: underline;
-    font-weight: 600;
-    transition: color var(--transition-speed) ease;
+.about-text {
+    /* flex: 2; min-width: 300px; */ /* Removed as using grid now */
 }
 
-.inline-link:hover {
-    color: var(--accent-orange);
-    text-decoration: none;
+.about-image {
+    text-align: center;
 }
 
-/* Soon Box Card (Terpisah) */
-.soon-box-card {
-    background: var(--bg-subtle);
-    padding: 40px 50px;
-    border: 1px solid rgba(0,0,0,0.05);
+.about-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+/* Services Section (Home Page) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.service-card {
+    background-color: var(--text-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Shadow yang lebih halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px); /* Efek hover lebih menonjol */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.service-card .service-icon {
+    font-size: 3.5em; /* Ukuran ikon lebih besar */
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-md);
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.4em;
+    color: var(--primary-dark);
+}
+
+.service-card p {
+    font-size: 1em;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+/* CTA Section (Home Page) */
+.section-cta {
+    background: linear-gradient(to right, var(--primary-green), var(--primary-light-green)); /* Gradasi warna */
+    color: var(--text-light);
+    text-align: center;
+    border-radius: var(--border-radius-lg);
+    margin: var(--spacing-xxl) auto; /* Margin atas/bawah */
+    max-width: 1000px;
+    padding: var(--spacing-xl) var(--spacing-md); /* Padding lebih besar */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.section-cta h2 {
+    color: var(--text-light);
+    font-size: 3em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-cta p {
+    font-size: 1.3em;
+    margin-bottom: var(--spacing-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Profil Page Specific */
+.vision-mission-card {
+    background-color: var(--bg-subtle);
+    border-left: 5px solid var(--primary-green);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    margin-top: var(--spacing-xl);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-
-.soon-box-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.soon-box-card h3 {
-    color: var(--text-dark);
-    margin-bottom: 15px;
+.vision-mission-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-sm);
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.3em;
-    font-weight: 600;
+}
+.vision-mission-card p {
+    margin-bottom: var(--spacing-sm);
 }
 
-.soon-box-card ul, .legal-box ul {
+.legal-box {
+    margin-top: var(--spacing-xl);
+    background-color: var(--bg-subtle);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.legal-box ul {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Lebih lebar */
+    gap: var(--spacing-md);
 }
 
-.soon-box-card li, .legal-box li {
-    padding: 10px 0;
+.legal-box ul li {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
+    font-size: 1em; /* Sedikit lebih besar */
+    color: var(--text-dark);
 }
 
-/* Icons within content */
-.icon-accent {
-    color: var(--accent-orange);
-    font-size: 1.4em;
-    min-width: 25px;
-    text-align: center;
+.legal-box ul li .fas {
+    color: var(--primary-green);
+    font-size: 1.3em; /* Ukuran ikon lebih besar */
+    margin-top: 3px;
 }
 
-.soon-box-card li .fas,
-.legal-box li .fas,
-#kontak .content-card p .fas,
-#kontak .content-card p .fab {
-    color: var(--primary-blue);
-    font-size: 1.1em;
-    min-width: 20px;
-    text-align: center;
+
+/* Unit Bisnis Page Specific */
+.unit-bisnis-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: var(--spacing-xl); /* Gap between sections */
 }
 
-/* Buttons (Placeholder untuk gaya tombol yang dihapus) */
-a.button {
-    display: inline-flex;
+.unit-bisnis-grid .content-card {
+    margin-bottom: 0; /* Remove default margin-bottom from content-card */
+}
+
+.unit-bisnis-card h3 { /* Changed from h4 to h3 for consistency */
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Ukuran heading lebih besar */
+    display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 15px;
-    background: linear-gradient(to right, var(--primary-blue), var(--link-hover));
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
+}
+.unit-bisnis-card .description {
+    margin-bottom: 20px;
+}
+
+.soon-box-card {
+    background-color: #fff3cd; /* Light yellow background */
+    border: 1px solid #ffeeba; /* Yellow border */
+    color: #664d03; /* Dark yellow text */
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Tambahkan shadow */
+}
+
+.soon-box-card h2, .soon-box-card h3 {
+    color: #664d03; /* Ensure heading color matches */
+}
+
+.soon-box-card .fas {
+    color: #cc9900; /* Darker yellow icon */
+}
+.soon-box-card ul li .fas {
+    color: #d19f1a;
+}
+
+
+/* Klien Page Specific */
+.client-logo-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid for clients */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.client-logo-grid li {
+    background-color: var(--text-light);
+    border: 1px solid var(--bg-subtle);
+    border-radius: var(--border-radius-md);
+    padding: 25px;
+    text-align: center;
     font-weight: 600;
-    font-size: 1.1em;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: none;
+    color: var(--text-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-a.button:hover, a.button:focus {
-    background: linear-gradient(to right, var(--link-hover), var(--primary-blue));
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.client-logo-grid li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* Form Dapatkan Penawaran */
-.form-description {
-    margin-bottom: 30px;
-    font-size: 1.1em;
+.client-logo-grid li .client-placeholder-icon { /* Class baru untuk ikon klien */
+    font-size: 2.8em; /* Ukuran ikon lebih besar */
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    min-height: 40px; /* Ensure consistent icon height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo-grid li img {
+    max-width: 100%;
+    max-height: 90px; /* Max height for client logos */
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logo-grid li:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.client-name {
+    font-size: 1.15em;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.client-type {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+
+/* Penawaran Page Specific */
+.offer-steps-grid {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for steps */
+    gap: 30px; /* Lebih banyak gap */
+    margin-top: 20px;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.offer-steps-grid li {
+    background-color: var(--bg-subtle);
+    border-radius: var(--border-radius-lg); /* Border radius lebih besar */
+    padding: var(--spacing-lg); /* Padding lebih besar */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Shadow yang lebih halus */
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.offer-steps-grid li .step-number {
+    font-size: 2.2em; /* Ukuran angka lebih besar */
+    font-weight: bold;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    min-width: 45px; /* Consistent width for number */
+    text-align: center;
+}
+
+.offer-steps-grid li .step-content h4 {
+    color: var(--primary-dark);
+    margin-bottom: 8px; /* Lebih banyak spasi */
+    font-size: 1.25em; /* Ukuran heading lebih besar */
+    line-height: 1.3;
+}
+
+.offer-steps-grid li .step-content p {
+    font-size: 0.95em;
+    margin-bottom: 0;
     color: var(--text-dark);
 }
 
-.offer-form .form-group {
-    margin-bottom: 25px;
+.offer-form-container {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
 }
 
-.offer-form label {
+.offer-form-container h2 {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.offer-form-container .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.offer-form-container label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-xs);
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--primary-dark);
     font-size: 1.05em;
 }
 
-.offer-form .required {
-    color: var(--accent-orange);
-    margin-left: 4px;
-    font-weight: normal;
+.offer-form-container input[type="text"],
+.offer-form-container input[type="email"],
+.offer-form-container input[type="tel"],
+.offer-form-container textarea {
+    width: 100%;
+    padding: 14px 18px; /* Padding lebih besar */
+    border: 1px solid var(--form-border);
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-body);
+    font-size: 1em;
+    background-color: var(--bg-light); /* Background input lebih terang */
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.offer-form input[type="text"],
-.offer-form input[type="email"],
-.offer-form input[type="tel"],
-.offer-form textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1px solid var(--form-border);
-    border-radius: 8px;
+.offer-form-container input:focus,
+.offer-form-container textarea:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.25); /* Shadow lebih kuat */
+    outline: none;
+}
+
+.offer-form-container textarea {
+    resize: vertical;
+    min-height: 150px; /* Minimum height lebih tinggi */
+}
+
+.form-description {
+    font-style: italic;
     font-size: 1em;
     color: var(--text-dark);
-    background-color: var(--bg-subtle);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.offer-form input:focus,
-.offer-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(42, 101, 255, 0.2);
-}
-
-.offer-form textarea {
-    resize: vertical;
-}
-
-.button-submit {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--accent-orange);
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.1em;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.25);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.button-submit:hover {
-    background: #E64A19;
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.35);
-}
-
-/* Footer */
-footer {
-    margin-top: 80px;
-    padding: 40px;
+    margin-bottom: 40px; /* Lebih banyak margin */
     text-align: center;
-    background: var(--primary-dark);
-    color: var(--text-light);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Kontak Page Specific */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.contact-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px; /* Lebih banyak gap */
+    margin-bottom: 25px; /* Lebih banyak margin */
+    font-size: 1.15em; /* Ukuran teks lebih besar */
+    color: var(--text-dark);
+}
+
+.contact-info-list li .contact-icon { /* Class baru untuk ikon kontak */
+    font-size: 1.8em; /* Ukuran ikon lebih besar */
+    color: var(--primary-green);
+    min-width: 35px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.contact-info-list li a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info-list li a:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.map-container {
+    width: 100%;
+    height: 450px; /* Tinggi map lebih besar */
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Shadow lebih kuat */
+    margin-top: var(--spacing-xl);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Katalog Stationery Page Specific */
+.filter-section {
+    margin-bottom: 50px; /* Lebih banyak margin */
+    background: var(--text-light);
+    padding: 30px; /* Padding lebih besar */
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Lebih banyak gap */
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.filter-section label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-right: 10px;
+    white-space: nowrap;
+    font-size: 1.05em;
+}
+
+.filter-section select,
+.filter-section input[type="text"] {
+    padding: 12px 18px; /* Padding lebih besar */
+    border: 1px solid var(--form-border);
+    border-radius: var(--border-radius-md);
+    font-size: 0.95em;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    flex-grow: 1;
+    max-width: 300px; /* Max width untuk input/select */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-section select:focus,
+.filter-section input[type="text"]:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.25);
+    outline: none;
+}
+
+.filter-section button {
+    background-color: var(--primary-green); /* Button filter jadi hijau */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.filter-section button:hover {
+    background-color: var(--link-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min width lebih besar */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Shadow lebih kuat */
+    overflow: hidden;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    position: relative;
 }
 
-.footer-brand {
+.product-card:hover {
+    transform: translateY(-10px); /* Efek hover lebih menonjol */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 220px; /* Tinggi gambar lebih besar */
+    overflow: hidden;
+    background-color: var(--bg-subtle);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--form-border);
+}
+
+.product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease; /* Transisi lebih lambat */
+}
+
+.product-card:hover .product-card-image img {
+    transform: scale(1.1); /* Zoom lebih besar saat hover */
+}
+
+.product-card-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-body h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-dark);
+    font-size: 1.4em; /* Ukuran heading lebih besar */
+    margin-bottom: 12px; /* Margin lebih besar */
+    line-height: 1.3;
+}
+
+.product-card-body p {
+    font-size: 0.95em;
+    color: var(--text-dark);
+    margin-bottom: 20px; /* Margin lebih besar */
+    flex-grow: 1;
+}
+
+.product-category {
+    display: inline-block;
+    background-color: var(--primary-light-green); /* Warna kategori berbeda */
+    color: var(--text-light);
+    padding: 6px 14px; /* Padding lebih besar */
+    border-radius: var(--border-radius-sm);
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    border-top: 1px dashed var(--form-border);
+    padding-top: 15px;
+}
+
+.product-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--accent-gold);
+}
+.product-meta .fas {
+    color: var(--primary-green);
+    margin-right: 5px;
+}
+
+.inquire-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.inquire-button:hover {
+    background-color: var(--link-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: var(--spacing-xxl) 0 var(--spacing-md) 0; /* Padding lebih besar */
+    margin-top: var(--spacing-xxl);
+    border-top: 8px solid var(--primary-green); /* Border lebih tebal */
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-about .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-about .footer-logo img {
+    height: 45px;
+    width: auto;
+}
+
+.footer-about .footer-logo span {
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.footer-about p {
+    font-size: 0.95em;
+    color: var(--bg-subtle);
+    margin-bottom: 0;
+}
+
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3 {
+    color: var(--accent-gold); /* Heading footer pakai aksen emas */
+    font-size: 1.2em;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid rgba(255, 179, 0, 0.3); /* Garis bawah tipis */
+    padding-bottom: var(--spacing-xs);
+}
+
+.footer-links ul li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
+    color: var(--text-light);
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.footer-contact p {
+    font-size: 0.95em;
+    color: var(--bg-subtle);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
     gap: 10px;
 }
 
-.footer-brand img {
-    width: 45px;
-    border-radius: 8px;
-    filter: invert(1);
+.footer-contact p .fas {
+    color: var(--primary-light-green); /* Ikon kontak hijau terang */
+    margin-top: 3px;
 }
 
-.footer-brand span {
-    font-weight: bold;
-    font-size: 1.1em;
+.footer-contact p a {
+    color: var(--bg-subtle);
 }
 
-.social-links {
+.footer-contact p a:hover {
+    color: var(--accent-gold);
+}
+
+
+.social-icons {
     display: flex;
-    gap: 20px;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
 }
 
-.social-links a {
-    color: var(--accent-orange);
-    font-size: 28px;
-    transition: color var(--transition-speed) ease, transform 0.2s ease;
-}
-
-.social-links a:hover, .social-links a:focus {
+.social-icons a {
     color: var(--text-light);
-    transform: translateY(-5px) rotate(5deg);
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-light-green);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    text-align: center;
 }
 
 .copyright {
-    font-size: 0.9em;
-    opacity: 0.7;
+    font-size: 0.85em;
+    color: rgba(255,255,255,0.6);
 }
 
-/* Scroll-to-top Button */
+/* Scroll to Top Button */
 #scroll-top-btn {
+    display: none; /* Sembunyikan secara default */
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    padding: 15px 18px;
-    font-size: 18px;
-    background: var(--primary-blue);
-    color: white;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
     border: none;
     border-radius: 50%;
+    width: 55px; /* Ukuran lebih besar */
+    height: 55px;
+    font-size: 1.6em; /* Ikon lebih besar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow lebih kuat */
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease, background 0.3s ease;
-}
-
-#scroll-top-btn.show {
-    opacity: 1;
-    visibility: visible;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 99;
 }
 
 #scroll-top-btn:hover {
-    transform: translateY(-5px);
-    background: var(--link-hover);
+    background-color: #e6a700;
+    transform: translateY(-4px); /* Efek hover lebih menonjol */
 }
 
+/* --- Responsive Adjustments --- */
+@media (min-width: 769px) {
+    /* Home Page */
+    .about-content-grid {
+        grid-template-columns: 2fr 1fr; /* Two columns for about */
+    }
 
-/* --- Mobile Menu & Hamburger - DIHAPUS SEMUA GAYA TERKAIT INI --- */
-.hamburger {
-    display: none !important; /* Pastikan hamburger tidak pernah muncul */
+    .unit-bisnis-grid {
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); /* Two columns for unit bisnis */
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1.5fr; /* Two columns for contact */
+    }
 }
 
-.mobile-menu {
-    display: none !important; /* Pastikan mobile menu tidak pernah muncul */
-}
-
-/* Responsiveness - DIUBAH UNTUK MENU DESKTOP AGAR MENYESUAIKAN LAYAR KECIL */
 @media (max-width: 992px) {
-    /* desktop-menu sekarang adalah satu-satunya menu, jadi tidak perlu disembunyikan */
-    .desktop-menu {
-        gap: 20px; /* Kurangi jarak antar item menu di layar yang lebih kecil */
-    }
-    .desktop-menu a {
-        font-size: 14px; /* Kecilkan font menu jika perlu */
-        padding: 5px 0; /* Pastikan padding tetap nyaman */
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 1.6em; }
+    p { font-size: 1em; }
+
+    .desktop-nav {
+        gap: var(--spacing-md);
     }
 
-    #main-header {
-        padding: 15px 20px;
-        min-height: 400px;
+    /* Hero */
+    #hero-section {
+        height: 60vh;
+        padding: 100px var(--spacing-md);
     }
-    .hero-content-in-header {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
+    #hero-section h1 { font-size: 3.5em; }
+    #hero-section p { font-size: 1.4em; }
+
     .hero-content-in-header h1 {
-        font-size: clamp(28px, 6vw, 40px);
+        font-size: 3em;
     }
     .hero-content-in-header p {
-        font-size: clamp(16px, 2.5vw, 20px);
+        font-size: 1.2em;
     }
 
-    section, aside {
-        padding: 0 20px;
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
     }
+
+    .section-padded {
+        padding: var(--spacing-xl) 0;
+    }
+    .section-header h2 {
+        font-size: 2em;
+    }
+    .section-header .subtitle {
+        font-size: 1.1em;
+    }
+
     .content-card {
-        padding: 40px;
+        padding: var(--spacing-lg);
     }
-    .soon-box-card {
-        padding: 30px 40px;
+
+    /* Services */
+    .service-card .service-icon {
+        font-size: 3em;
+    }
+    .service-card h3 {
+        font-size: 1.3em;
+    }
+
+    /* CTA */
+    .section-cta {
+        padding: var(--spacing-xl) var(--spacing-md);
+        margin: var(--spacing-xl) auto;
+    }
+    .section-cta h2 {
+        font-size: 2.5em;
+    }
+    .section-cta p {
+        font-size: 1.1em;
+    }
+
+    /* Profil Page */
+    .legal-box ul {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .legal-box ul li {
+        font-size: 0.95em;
+    }
+    .legal-box ul li .fas {
+        font-size: 1.2em;
+    }
+
+    /* Klien Page */
+    .client-logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    .client-logo-grid li {
+        padding: 20px;
+    }
+    .client-logo-grid li .client-placeholder-icon {
+        font-size: 2.2em;
+    }
+    .client-logo-grid li img {
+        max-height: 70px;
+    }
+    .client-name {
+        font-size: 1em;
+    }
+    .client-type {
+        font-size: 0.85em;
+    }
+
+    /* Penawaran Page */
+    .offer-steps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .offer-steps-grid li {
+        padding: 15px;
+        gap: 10px;
+    }
+    .offer-steps-grid li .step-number {
+        font-size: 1.8em;
+        min-width: 35px;
+    }
+    .offer-steps-grid li .step-content h4 {
+        font-size: 1.1em;
+    }
+    .offer-steps-grid li .step-content p {
+        font-size: 0.9em;
+    }
+    .offer-form-container {
+        padding: var(--spacing-lg);
+    }
+    .offer-form-container input, .offer-form-container textarea {
+        padding: 12px 15px;
+    }
+
+    /* Kontak Page */
+    .contact-info-list li {
+        font-size: 1.05em;
+        gap: 15px;
+    }
+    .contact-info-list li .contact-icon {
+        font-size: 1.5em;
+    }
+    .map-container {
+        height: 400px;
+    }
+
+    /* Katalog */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .product-card-image {
+        height: 180px;
+    }
+    .product-card-body {
+        padding: 20px;
+    }
+    .product-card-body h3 {
+        font-size: 1.2em;
+    }
+    .product-card-body p {
+        font-size: 0.9em;
+    }
+    .product-price {
+        font-size: 1.2em;
+    }
+    .inquire-button {
+        font-size: 0.85em;
+        padding: 10px 18px;
+    }
+    .filter-section {
+        padding: 25px;
+        gap: 15px;
+    }
+    .filter-section label,
+    .filter-section select,
+    .filter-section input[type="text"],
+    .filter-section button {
+        font-size: 0.9em;
+        padding: 10px 15px;
     }
 }
 
 @media (max-width: 768px) {
-    #main-header {
-        min-height: 350px;
-        /* Jika menu masih terlalu lebar, gunakan flex-wrap atau ubah layout */
-        flex-direction: column; /* Ubah header menjadi vertikal di layar kecil */
-        align-items: center; /* Pusatkan item */
-        justify-content: flex-start; /* Dorong konten ke atas */
-        padding-bottom: 20px; /* Sesuaikan padding bawah */
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.5em; }
+    p { font-size: 0.95em; }
+
+    .desktop-nav {
+        display: none;
     }
-    .header-top {
-        flex-direction: column; /* Logo dan menu juga jadi vertikal */
-        gap: 15px; /* Jarak antar logo dan menu */
+    .hamburger-toggle {
+        display: block;
     }
-    .desktop-menu {
-        flex-wrap: wrap; /* Jika menu terlalu panjang, biarkan wrap */
-        justify-content: center; /* Pusatkan item menu yang wrap */
-        gap: 15px; /* Kurangi gap lebih lanjut */
-        margin-top: 15px; /* Beri jarak dari logo */
+
+    /* Hero */
+    #hero-section {
+        height: auto;
+        padding: 80px var(--spacing-md);
     }
-    .desktop-menu a {
-        font-size: 13px; /* Lebih kecil lagi */
+    #hero-section h1 { font-size: 3em; }
+    #hero-section p { font-size: 1.2em; }
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
     }
-    .logo-text {
-        font-size: 18px;
+    .hero-buttons .button {
+        width: 100%;
+        min-width: unset;
     }
-    h2 {
-        font-size: clamp(22px, 4vw, 28px);
-    }
+
     .hero-content-in-header {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding: 60px var(--spacing-md) 30px;
+    }
+    .hero-content-in-header h1 {
+        font-size: 2.5em;
+    }
+    .hero-content-in-header p {
+        font-size: 1.05em;
+    }
+
+    .section-padded {
+        padding: var(--spacing-lg) 0;
+    }
+    .content-card {
+        padding: var(--spacing-md);
+    }
+
+    /* About Us */
+    .about-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-image {
+        margin-top: var(--spacing-lg);
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .service-card .service-icon {
+        font-size: 2.8em;
+    }
+    .service-card h3 {
+        font-size: 1.2em;
+    }
+
+    /* CTA */
+    .section-cta {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin: var(--spacing-xl) auto;
+    }
+    .section-cta h2 {
+        font-size: 2em;
+    }
+    .section-cta p {
+        font-size: 1em;
+    }
+    .cta-buttons {
+        flex-direction: column;
+    }
+    .cta-buttons .button {
+        width: 100%;
+    }
+
+    /* Profil Page */
+    .legal-box ul {
+        grid-template-columns: 1fr;
+    }
+
+    /* Klien Page */
+    .client-logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .client-logo-grid li {
+        padding: 15px;
+    }
+    .client-logo-grid li .client-placeholder-icon {
+        font-size: 2em;
+    }
+    .client-logo-grid li img {
+        max-height: 50px;
+    }
+    .client-name {
+        font-size: 0.95em;
+    }
+    .client-type {
+        font-size: 0.75em;
+    }
+
+    /* Penawaran Page */
+    .offer-steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .offer-steps-grid li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .offer-steps-grid li .step-number {
+        margin-bottom: 10px;
+    }
+    .offer-form-container .button-submit {
+        width: 100%;
+    }
+
+    /* Kontak Page */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .map-container {
+        height: 300px;
+    }
+    .contact-info-list li {
+        font-size: 1em;
+        gap: 10px;
+    }
+    .contact-info-list li .contact-icon {
+        font-size: 1.3em;
+    }
+
+    /* Katalog */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    .product-card-image {
+        height: 160px;
+    }
+    .filter-section {
+        padding: 20px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-section label {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .filter-section select,
+    .filter-section input[type="text"],
+    .filter-section button {
+        width: 100%;
+        max-width: unset;
     }
 }
 
 @media (max-width: 480px) {
-    #main-header {
-        min-height: 300px;
-        padding: 10px 15px;
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.3em; }
+    p { font-size: 0.9em; }
+
+    .logo img {
+        height: 45px;
+    }
+    .logo-text {
+        font-size: 1.4em;
+    }
+
+    #hero-section {
+        padding: 60px var(--spacing-sm);
+    }
+    #hero-section h1 { font-size: 2.5em; }
+    #hero-section p { font-size: 1.1em; }
+
+    .hero-content-in-header {
+        padding: 50px var(--spacing-sm) 25px;
     }
     .hero-content-in-header h1 {
-        font-size: clamp(24px, 7vw, 36px);
+        font-size: 2em;
     }
     .hero-content-in-header p {
-        font-size: clamp(15px, 3.5vw, 18px);
+        font-size: 0.95em;
     }
-    section, aside {
-        padding: 0 15px;
+
+    .close-btn {
+        font-size: 2.2em;
     }
-    .content-card {
-        padding: 30px;
+    .mobile-nav-links a {
+        font-size: 1.6em;
     }
-    .soon-box-card {
-        padding: 25px 30px;
-    }
-    .desktop-menu {
-        gap: 10px; /* Gap lebih kecil lagi */
-    }
-    .desktop-menu a {
-        font-size: 12px; /* Font paling kecil */
-    }
-    .offer-form input, .offer-form textarea {
-        padding: 10px 12px;
-    }
-    .button-submit {
+    .mobile-nav-info p {
         font-size: 1em;
-        padding: 12px 20px;
     }
-    #scroll-top-btn {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 14px;
-        font-size: 16px;
+
+    .content-card {
+        padding: var(--spacing-md);
+    }
+
+    /* Services */
+    .service-card .service-icon {
+        font-size: 2.5em;
+    }
+    .service-card h3 {
+        font-size: 1.1em;
+    }
+
+    /* CTA */
+    .section-cta h2 {
+        font-size: 1.8em;
+    }
+    .section-cta p {
+        font-size: 0.95em;
+    }
+
+    /* Katalog */
+    .product-card-image {
+        height: 140px;
+    }
+    .product-card-body h3 {
+        font-size: 1.1em;
+    }
+}
+
+/* --- Styling untuk Halaman Katalog Produk (stationery.html) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsif */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar produk konsisten */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-card h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    padding: 15px 20px 5px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.product-card .product-description {
+    font-size: 0.95em;
+    color: var(--text-dark);
+    padding: 0 20px 10px;
+    line-height: 1.6;
+    flex-grow: 1; /* Agar deskripsi mendorong tombol ke bawah */
+}
+
+.product-card .product-features {
+    list-style: none;
+    padding: 0 20px 15px;
+    margin: 0;
+}
+
+.product-card .product-features li {
+    font-size: 0.9em;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.product-card .product-features li .fas {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.product-card .button {
+    margin: 15px 20px 20px;
+    width: calc(100% - 40px); /* Lebar tombol sesuai card */
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 1em;
+}
+
+.catalog-note {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 60px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+}
+
+.catalog-note p {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.catalog-note p .fas {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+/* --- Styling untuk Halaman Kebijakan Privasi (privacy-policy.html) --- */
+.content-card h3 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.content-card p,
+.content-card ul {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.content-card ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.content-card ul li {
+    margin-bottom: 8px;
+}
+
+.content-card ul li strong {
+    color: var(--text-darker);
+}
+
+.content-card .last-updated {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+/* --- Media Queries untuk Responsif (sesuaikan jika ada konflik dengan yang sudah ada) --- */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
     }
 }

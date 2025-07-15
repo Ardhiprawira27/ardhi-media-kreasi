@@ -1,174 +1,269 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ardhi Stationery Works</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9fafb;
-      margin: 0;
-      color: #333;
-    }
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      position: relative;
-    }
-    header a.back {
-      position: absolute;
-      left: 20px;
-      top: 30px;
-      background: white;
-      color: #1e3a8a;
-      padding: 6px 12px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #1e3a8a;
-      margin-bottom: 10px;
-    }
-    .search-bar {
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .search-bar input {
-      padding: 10px;
-      width: 60%;
-      max-width: 400px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .catalog {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 15px;
-      text-align: center;
-    }
-    .product img {
-      max-width: 100%;
-      height: 150px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .product h4 {
-      margin: 5px 0;
-      color: #1e3a8a;
-    }
-    .product p {
-      font-size: 14px;
-      color: #555;
-    }
-    .download {
-      margin: 20px auto 40px;
-      text-align: center;
-    }
-    .download a {
-      background: #1e3a8a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .download a:hover {
-      background: #3749a1;
-    }
-    footer {
-      background: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
-  <script>
-    function searchProduct() {
-      const input = document.getElementById('search').value.toLowerCase();
-      const products = document.getElementsByClassName('product');
-      for (let i = 0; i < products.length; i++) {
-        const item = products[i].innerText.toLowerCase();
-        products[i].style.display = item.includes(input) ? '' : 'none';
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Alat Tulis Kantor - PT Ardhi Media Kreasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+                <div class="logo-text">PT Ardhi<br>Media Kreasi</div>
+            </a>
+            <nav class="desktop-nav">
+                <a href="profil.html">Profil</a>
+                <a href="unit-bisnis.html" class="active">Unit Bisnis</a>
+                <a href="klien.html">Klien</a>
+                <a href="penawaran.html">Penawaran</a>
+                <a href="kontak.html">Kontak</a>
+            </nav>
+            <button class="hamburger-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+        <div class="hero-content-in-header" data-aos="fade-in">
+            <h1 class="animate__animated animate__fadeInDown">Katalog Alat Tulis Kantor</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                <i class="fas fa-boxes hero-icon animate__animated animate__pulse animate__infinite"></i> Produk ATK Lengkap dan Berkualitas untuk Kebutuhan Anda
+            </p>
+        </div>
+    </header>
 
-<header>
-  <a href="index.html" class="back">⟵ Kembali</a>
-  <h1>Ardhi Stationery Works</h1>
-  <p>Pusat Kebutuhan Alat Tulis Kantor Anda</p>
-</header>
+    <nav id="mobile-nav-overlay">
+        <button class="close-btn" aria-label="Close Navigation Menu">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="unit-bisnis.html" class="active">Unit Bisnis</a></li>
+            <li><a href="klien.html">Klien</a></li>
+            <li><a href="penawaran.html">Penawaran</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+        <div class="mobile-nav-info">
+            <p><i class="fas fa-phone-alt"></i> 0897-8367-750</p>
+            <p><i class="fas fa-envelope"></i> ardhi_mediakreasi@yahoo.com</p>
+        </div>
+    </nav>
 
-<section>
-  <h2>Tentang Toko Kami</h2>
-  <p>
-    Ardhi Stationery Works adalah unit usaha dari PT Ardhi Media Kreasi yang fokus menyediakan alat tulis kantor (ATK) untuk kebutuhan instansi dan perusahaan. Kami menjamin produk yang berkualitas, pengiriman tepat waktu, dan harga yang bersaing.
-  </p>
-</section>
+    <main>
+        <section id="atk-catalog" class="section-padded">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Produk Alat Tulis & Perlengkapan Kantor</h2>
+                    <p class="subtitle">Kami menyediakan beragam produk alat tulis dan perlengkapan kantor untuk mendukung operasional instansi dan perusahaan Anda. Dapatkan penawaran terbaik untuk pengadaan jumlah besar.</p>
+                </div>
 
-<section class="download">
-  <a href="Katalog_Ardhi_Stationery_Works.pdf" target="_blank">📥 Unduh Katalog PDF</a>
-</section>
+                <div class="product-grid">
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://via.placeholder.com/300x200?text=Kertas+HVS+A4" alt="Kertas HVS A4">
+                        <h3>Kertas HVS A4 80gsm</h3>
+                        <p class="product-description">Kertas HVS berkualitas tinggi, cocok untuk kebutuhan cetak sehari-hari. Warna putih cerah, tidak mudah tembus tinta. **Tersedia merek Sinar Dunia, PaperOne, Copy Paper.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Ukuran: A4 (210 x 297 mm)</li>
+                            <li><i class="fas fa-check-circle"></i> Gramasi: 80 gsm</li>
+                            <li><i class="fas fa-check-circle"></i> Kemasan: Rim (500 lembar)</li>
+                        </ul>
+                        <a href="penawaran.html?product=Kertas HVS A4" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
 
-<section class="search-bar">
-  <input type="text" id="search" placeholder="Cari produk..." onkeyup="searchProduct()">
-</section>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://via.placeholder.com/300x200?text=Pulpen+Gel+Hitam" alt="Pulpen Gel Hitam">
+                        <h3>Pulpen Gel Hitam</h3>
+                        <p class="product-description">Pulpen gel dengan tinta hitam pekat, cepat kering, dan nyaman digenggam. Ideal untuk menulis dokumen penting atau catatan harian. **Tersedia merek Standard, Faster, Joyko.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Warna Tinta: Hitam</li>
+                            <li><i class="fas fa-check-circle"></i> Ukuran Mata Pena: 0.5mm / 0.7mm</li>
+                            <li><i class="fas fa-check-circle"></i> Merek: Beragam (Standard, Faster, Joyko)</li>
+                        </ul>
+                        <a href="penawaran.html?product=Pulpen Gel Hitam" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
 
-<section>
-  <h2>Katalog Produk</h2>
-  <div class="catalog">
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150?text=Kertas+A4" alt="Kertas A4">
-      <h4>Kertas A4 70gsm</h4>
-      <p>Rp 50.000 / Rim</p>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150?text=Pulpen+Standar" alt="Pulpen">
-      <h4>Pulpen Standard AE7</h4>
-      <p>Rp 36.000 / Lusin</p>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150?text=Map+Folder" alt="Map">
-      <h4>Map Folder Snelhecter</h4>
-      <p>Rp 4.000 / Pcs</p>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/200x150?text=Lakban" alt="Lakban">
-      <h4>Lakban Coklat 2 inch</h4>
-      <p>Rp 8.000 / Roll</p>
-    </div>
-  </div>
-</section>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://via.placeholder.com/300x200?text=Map+Snelhecter" alt="Map Snelhecter">
+                        <h3>Map Snelhecter Folio</h3>
+                        <p class="product-description">Map snelhecter berbahan plastik tebal atau kertas manila, dilengkapi dengan pengait untuk menyimpan dokumen agar rapi dan terorganisir. **Tersedia merek Bantex, Biola, Bindex.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Ukuran: Folio</li>
+                            <li><i class="fas fa-check-circle"></i> Bahan: Plastik / Kertas Manila</li>
+                            <li><i class="fas fa-check-circle"></i> Warna: Beragam</li>
+                        </ul>
+                        <a href="penawaran.html?product=Map Snelhecter" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
 
-<section>
-  <h2>Hubungi Kami</h2>
-  <p>
-    📧 Email: <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a><br>
-    💬 WhatsApp: <a href="https://wa.me/628978367750" target="_blank">0897-8367-750</a>
-  </p>
-</section>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://via.placeholder.com/300x200?text=Spidol+Whiteboard" alt="Spidol Whiteboard">
+                        <h3>Spidol Whiteboard Berwarna</h3>
+                        <p class="product-description">Spidol khusus whiteboard dengan tinta non-permanen yang mudah dihapus. Tersedia dalam berbagai pilihan warna cerah. **Tersedia merek Snowman, Faber-Castell, Pentel.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Tinta: Non-permanen</li>
+                            <li><i class="fas fa-check-circle"></i> Pilihan Warna: Hitam, Biru, Merah, Hijau, dll.</li>
+                            <li><i class="fas fa-check-circle"></i> Ujung: Bullet / Chisel</li>
+                        </ul>
+                        <a href="penawaran.html?product=Spidol Whiteboard" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
 
-<footer>
-  <p>&copy; 2025 Ardhi Stationery Works. Powered by PT Ardhi Media Kreasi.</p>
-</footer>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://via.placeholder.com/300x200?text=Buku+Tulis" alt="Buku Tulis">
+                        <h3>Buku Tulis Hard Cover A5</h3>
+                        <p class="product-description">Buku catatan dengan sampul keras dan kualitas kertas yang baik, cocok untuk rapat, seminar, atau catatan pribadi. **Tersedia merek Sidu, Campus, Kwarto.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Ukuran: A5</li>
+                            <li><i class="fas fa-check-circle"></i> Sampul: Hard Cover</li>
+                            <li><i class="fas fa-check-circle"></i> Isi: Garis / Polos / Kotak</li>
+                        </ul>
+                        <a href="penawaran.html?product=Buku Tulis Hard Cover A5" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
 
+                     <div class="product-card" data-aos="fade-up" data-aos-delay="600">
+                        <img src="https://via.placeholder.com/300x200?text=Staples+&amp;+Isi" alt="Staples & Isi Staples">
+                        <h3>Staples & Isi Staples No. 10</h3>
+                        <p class="product-description">Staples standar untuk menyatukan dokumen, dilengkapi dengan isi staples yang kuat. Ideal untuk penggunaan kantor sehari-hari. **Tersedia merek Kenko, Max, Joyko.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Tipe Staples: Standar No. 10</li>
+                            <li><i class="fas fa-check-circle"></i> Bahan: Metal / Plastik</li>
+                            <li><i class="fas fa-check-circle"></i> Isi Staples: Kawat Baja</li>
+                        </ul>
+                        <a href="penawaran.html?product=Staples & Isi Staples" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="700">
+                        <img src="https://via.placeholder.com/300x200?text=Binder+Clip" alt="Binder Clip">
+                        <h3>Binder Clip Berbagai Ukuran</h3>
+                        <p class="product-description">Penjepit kertas serbaguna untuk merapikan dokumen dalam jumlah banyak. Terbuat dari bahan logam berkualitas. **Tersedia merek Kenko, Joyko, V-TEC.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Ukuran: 15mm, 19mm, 25mm, 32mm, dll.</li>
+                            <li><i class="fas fa-check-circle"></i> Bahan: Logam</li>
+                            <li><i class="fas fa-check-circle"></i> Kemasan: Box/Pouch</li>
+                        </ul>
+                        <a href="penawaran.html?product=Binder Clip" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="800">
+                        <img src="https://via.placeholder.com/300x200?text=Isolasi+Lakban" alt="Isolasi / Lakban">
+                        <h3>Isolasi Bening dan Lakban Coklat</h3>
+                        <p class="product-description">Berbagai jenis isolasi dan lakban untuk keperluan pengemasan, penandaan, dan perbaikan kecil. Kuat dan lengket. **Tersedia merek Daimaru, Nachi, Goldtape.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Tipe: Bening, Coklat, Masking</li>
+                            <li><i class="fas fa-check-circle"></i> Ukuran: Beragam lebar dan panjang</li>
+                            <li><i class="fas fa-check-circle"></i> Aplikasi: Umum / Packaging</li>
+                        </ul>
+                        <a href="penawaran.html?product=Isolasi Lakban" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="900">
+                        <img src="https://via.placeholder.com/300x200?text=Cutter+&amp;+Isi" alt="Cutter & Isi Cutter">
+                        <h3>Cutter dan Isi Cutter</h3>
+                        <p class="product-description">Alat potong presisi untuk kertas, kardus, atau bahan ringan lainnya. Desain ergonomis dengan mata pisau tajam yang bisa diganti. **Tersedia merek SDI, Joyko, Kenko.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Ukuran: Kecil, Sedang, Besar</li>
+                            <li><i class="fas fa-check-circle"></i> Bahan: Stainless Steel / Plastik</li>
+                            <li><i class="fas fa-check-circle"></i> Mata Pisau: A100, L150, dll.</li>
+                        </ul>
+                        <a href="penawaran.html?product=Cutter & Isi Cutter" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="1000">
+                        <img src="https://via.placeholder.com/300x200?text=Tinta+Printer" alt="Tinta Printer">
+                        <h3>Tinta Printer Inkjet/Laser</h3>
+                        <p class="product-description">Tinta dan toner cartridge original atau kompatibel untuk berbagai merek printer. Menjamin hasil cetak berkualitas tinggi dan awet. **Tersedia merek HP, Epson, Canon, Brother, Fuji Xerox.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Tipe: Inkjet / Toner Laser</li>
+                            <li><i class="fas fa-check-circle"></i> Warna: Hitam, Cyan, Magenta, Yellow</li>
+                            <li><i class="fas fa-check-circle"></i> Kapasitas: Standar / XL</li>
+                        </ul>
+                        <a href="penawaran.html?product=Tinta Printer" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="1100">
+                        <img src="https://via.placeholder.com/300x200?text=Kalkulator" alt="Kalkulator">
+                        <h3>Kalkulator Ilmiah / Keuangan</h3>
+                        <p class="product-description">Berbagai jenis kalkulator untuk kebutuhan perhitungan dasar, ilmiah, maupun keuangan. Akurat dan tahan lama. **Tersedia merek Casio, Citizen, Joyko.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Tipe: Umum, Ilmiah, Keuangan</li>
+                            <li><i class="fas fa-check-circle"></i> Fitur: Solar Power, Display Besar</li>
+                            <li><i class="fas fa-check-circle"></i> Desain: Ergonomis</li>
+                        </ul>
+                        <a href="penawaran.html?product=Kalkulator" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="1200">
+                        <img src="https://via.placeholder.com/300x200?text=Penghapus+Tip-X" alt="Penghapus & Tip-X">
+                        <h3>Penghapus Karet & Cairan Koreksi</h3>
+                        <p class="product-description">Penghapus berkualitas untuk pensil dan cairan koreksi (Tip-X) untuk tinta. Efektif dan tidak merusak kertas. **Tersedia merek Faber-Castell, Joyko, Pentel.**</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Tipe: Penghapus Karet, Cairan Koreksi, Kertas Koreksi</li>
+                            <li><i class="fas fa-check-circle"></i> Kemasan: Botol / Pulpen</li>
+                            <li><i class="fas fa-check-circle"></i> Merek: Beragam</li>
+                        </ul>
+                        <a href="penawaran.html?product=Penghapus & Tip-X" class="button button-primary">Ajukan Penawaran <i class="fas fa-file-invoice-dollar"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="catalog-note" data-aos="fade-up">
+                    <p><i class="fas fa-info-circle"></i> Katalog ini hanya menampilkan sebagian kecil dari produk ATK yang kami sediakan. Kami terus memperbarui dan menambah inventaris kami. Untuk daftar lengkap, spesifikasi detail, harga khusus pengadaan, atau permintaan produk yang tidak tercantum, silakan hubungi tim penjualan kami atau ajukan penawaran.</p>
+                    <a href="kontak.html" class="button button-secondary">Hubungi Kami untuk Info Lebih Lanjut <i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about" data-aos="fade-up">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+                        <span>PT Ardhi Media Kreasi</span>
+                    </div>
+                    <p>Mitra terpercaya Anda dalam pengadaan barang dan jasa berkualitas untuk instansi dan perusahaan.</p>
+                </div>
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+    <h3>Navigasi</h3>
+    <ul>
+        <li><a href="profil.html">Profil Perusahaan</a></li>
+        <li><a href="unit-bisnis.html">Unit Bisnis</a></li>
+        <li><a href="klien.html">Daftar Klien</a></li>
+        <li><a href="penawaran.html">Ajukan Penawaran</a></li>
+        <li><a href="kontak.html">Kontak Kami</a></li>
+        <li><a href="privacy-policy.html">Kebijakan Privasi</a></li>
+    </ul>
+</div>
+                <div class="footer-contact" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> JI Wolter Monginsidi Gg Hi. Abdullah No 19A, Pengajaran, Telukbetung Utara, Bandar Lampung</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+628978367750">0897-8367-750</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a></p>
+                </div>
+                <div class="footer-social" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 PT Ardhi Media Kreasi. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scroll-top-btn" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
