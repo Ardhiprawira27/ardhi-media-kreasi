@@ -1,0 +1,45 @@
+from fpdf import FPDF
+
+# Buat objek PDF
+pdf = FPDF()
+pdf.add_page()
+pdf.set_auto_page_break(auto=True, margin=15)
+
+# Judul
+pdf.set_font("Arial", 'B', 16)
+pdf.cell(0, 10, "Katalog Produk - Ardhi Stationery Works", ln=True, align='C')
+pdf.ln(10)
+
+# Deskripsi singkat
+pdf.set_font("Arial", '', 12)
+pdf.multi_cell(0, 8, "Berikut adalah daftar produk alat tulis kantor (ATK) yang disediakan oleh Ardhi Stationery Works, unit usaha dari PT Ardhi Media Kreasi. Harga bersifat estimasi dan dapat disesuaikan berdasarkan jumlah dan lokasi pengiriman.")
+pdf.ln(8)
+
+# Tabel produk
+produk = [
+    ["Nama Produk", "Deskripsi", "Harga"],
+    ["Kertas A4 70gsm", "Kertas putih ukuran A4, 500 lembar", "Rp 50.000 / Rim"],
+    ["Pulpen Standard AE7", "Pulpen tinta biru, isi 12 pcs", "Rp 36.000 / Lusin"],
+    ["Map Folder Snelhecter", "Map karton dengan penjepit dalam", "Rp 4.000 / Pcs"],
+    ["Lakban Coklat 2 inch", "Lakban untuk pengepakan", "Rp 8.000 / Roll"]
+]
+
+# Set header table
+pdf.set_font("Arial", 'B', 12)
+col_widths = [60, 80, 40]
+for i, header in enumerate(produk[0]):
+    pdf.cell(col_widths[i], 10, header, border=1, align='C')
+pdf.ln()
+
+# Isi tabel
+pdf.set_font("Arial", '', 11)
+for row in produk[1:]:
+    for i, item in enumerate(row):
+        pdf.cell(col_widths[i], 10, item, border=1)
+    pdf.ln()
+
+# Simpan file PDF
+pdf_path = "/mnt/data/Katalog_Ardhi_Stationery_Works.pdf"
+pdf.output(pdf_path)
+
+pdf_path
