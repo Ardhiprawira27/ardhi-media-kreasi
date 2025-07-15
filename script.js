@@ -1,7 +1,8 @@
 // Inisialisasi AOS (Animate On Scroll) library
 AOS.init({
-    duration: 1000, // Durasi animasi dalam milidetik (diperpanjang sedikit)
+    duration: 1000, // Durasi animasi dalam milidetik
     once: true,    // Animasi hanya terjadi sekali saat elemen masuk viewport
+    delay: 50,     // Sedikit delay awal untuk efek yang lebih halus
 });
 
 // Logika untuk tombol "Kembali ke Atas"
@@ -23,3 +24,22 @@ scrollTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// Logika untuk Menu Hamburger DIHAPUS SEPENUHNYA
+// const hamburger = document.querySelector('.hamburger');
+// const mobileMenu = document.querySelector('.mobile-menu');
+// const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
+
+// hamburger.addEventListener('click', () => {
+//     hamburger.classList.toggle('open');
+//     mobileMenu.classList.toggle('open');
+//     document.body.classList.toggle('no-scroll');
+// });
+
+// mobileMenuItems.forEach(item => {
+//     item.addEventListener('click', () => {
+//         hamburger.classList.remove('open');
+//         mobileMenu.classList.remove('open');
+//         document.body.classList.remove('no-scroll');
+//     });
+// });

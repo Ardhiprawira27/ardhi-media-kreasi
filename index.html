@@ -1,108 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT Ardhi Media Kreasi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Ardhi Media Kreasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <a href="#" class="logo">
-      <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
-      <div class="logo-text">PT Ardhi<br>Media Kreasi</div>
-    </a>
-    <nav class="desktop-menu">
-      <a href="#profil">Profil</a>
-      <a href="#unit">Unit Bisnis</a>
-      <a href="#klien">Klien</a>
-      <a href="#kontak">Kontak</a>
-    </nav>
-  </header>
+    <header id="main-header">
+        <div class="header-top">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+                <div class="logo-text">PT Ardhi<br>Media Kreasi</div>
+            </a>
+            <nav class="desktop-menu">
+                <a href="#profil">Profil</a>
+                <a href="#unit">Unit Bisnis</a>
+                <a href="#klien">Klien</a>
+                <a href="#penawaran">Penawaran</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+        </div>
+        
+        <div class="hero-content-in-header" data-aos="fade-in">
+            <h1 class="animate__animated animate__fadeInDown">Selamat Datang di PT Ardhi Media Kreasi</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">Solusi Pengadaan Kantor, ATK, dan Jasa Profesional</p>
+        </div>
+    </header>
 
-  <main>
-    <section id="hero" data-aos="zoom-in">
-      <div class="hero-content">
-        <h1 class="animate__animated animate__fadeInDown">Selamat Datang di PT Ardhi Media Kreasi</h1>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s">Solusi Pengadaan Kantor, ATK, dan Jasa Profesional</p>
-        <a href="#unit" class="button animate__animated animate__zoomIn animate__delay-2s">Lihat Unit Bisnis <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </section>
+    <main>
+        <section id="profil" data-aos="fade-up">
+            <article class="content-card">
+                <h2><i class="fas fa-building icon-accent"></i> Profil Perusahaan</h2>
+                <p>PT Ardhi Media Kreasi adalah badan usaha resmi berbentuk Perseroan Perorangan yang berdiri sejak 2022 di Bandar Lampung. Kami bergerak dalam pengadaan alat tulis kantor, perlengkapan komputer, pakaian, serta layanan jasa untuk kebutuhan instansi dan korporasi.</p>
+                <a href="profil-lengkap.html" class="link-selengkapnya">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+            </article>
+        </section>
 
-    <section id="profil" data-aos="fade-up">
-      <article class="content-card">
-        <h2><i class="fas fa-building icon-blue"></i> Profil Perusahaan</h2>
-        <p>PT Ardhi Media Kreasi adalah badan usaha resmi berbentuk Perseroan Perorangan yang berdiri sejak 2022 di Bandar Lampung. Kami bergerak dalam pengadaan alat tulis kantor, perlengkapan komputer, pakaian, serta layanan jasa untuk kebutuhan instansi dan korporasi.</p>
-      </article>
-    </section>
+        <section id="unit" data-aos="fade-up">
+            <article class="content-card">
+                <h2><i class="fas fa-briefcase icon-accent"></i> Unit Bisnis</h2>
+                <p>Kami memiliki berbagai unit bisnis aktif dan yang sedang dikembangkan, termasuk <a href="stationery.html" class="inline-link">Ardhi Stationery Works</a> sebagai penyedia alat tulis kantor profesional.</p>
+            </article>
 
-    <section id="unit" data-aos="fade-up">
-      <article class="content-card">
-        <h2><i class="fas fa-briefcase icon-blue"></i> Unit Bisnis</h2>
-        <p>Kami memiliki berbagai unit bisnis aktif dan yang sedang dikembangkan, termasuk Ardhi Stationery Works sebagai penyedia alat tulis kantor profesional.</p>
-        <div class="soon-box">
-          <h3><i class="fas fa-hourglass-half"></i> Segera Hadir:</h3>
-          <ul>
-            <li><i class="fas fa-cogs"></i> Jasa (Fee) atau Kontrak</li>
-            <li><i class="fas fa-desktop"></i> Perlengkapan dan Komputer</li>
-            <li><i class="fas fa-tshirt"></i> Pakaian</li>
-          </ul>
-        </div>
-      </article>
-    </section>
+            <article class="content-card soon-box-card" data-aos="fade-up" data-aos-delay="200">
+                <h3><i class="fas fa-hourglass-half"></i> Segera Hadir:</h3>
+                <ul>
+                    <li><i class="fas fa-cogs"></i> Jasa (Fee) atau Kontrak</li>
+                    <li><i class="fas fa-desktop"></i> Perlengkapan dan Komputer</li>
+                    <li><i class="fas fa-tshirt"></i> Pakaian</li>
+                </ul>
+            </article>
+        </section>
 
-    <section id="klien" data-aos="fade-up">
-      <article class="content-card">
-        <h2><i class="fas fa-handshake icon-blue"></i> Klien Kami</h2>
-        <p>Kami dipercaya oleh instansi pemerintahan dan swasta, salah satunya KPP Pratama Bandar Lampung untuk pengadaan ATK rutin sejak 2024.</p>
-        <div class="client-logo-container">
-          <img src="kpp-logo.png" alt="Logo KPP Pratama Bandar Lampung" class="client-logo" data-aos="zoom-in" data-aos-delay="300">
-                  </div>
-      </article>
-    </section>
+        <section id="klien" data-aos="fade-up">
+            <article class="content-card">
+                <h2><i class="fas fa-handshake icon-accent"></i> Klien Kami</h2>
+                <p>Kami dipercaya oleh instansi pemerintahan dan swasta untuk berbagai kebutuhan.</p>
+            </article>
+        </section>
 
-    <section id="kontak" data-aos="fade-up">
-      <article class="content-card">
-        <h2><i class="fas fa-envelope icon-blue"></i> Kontak Kami</h2>
-        <p><i class="fas fa-at"></i> Email: <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a></p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/628978367750">0897-8367-750</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Wolter Monginsidi Gg Hi. Abdullah No. 19A, Bandar Lampung</p>
-      </article>
-    </section>
-    
-    <aside class="legal-box content-card" data-aos="fade-up">
-      <h2><i class="fas fa-file-contract icon-blue"></i> Legalitas Usaha</h2>
-      <ul>
-        <li><i class="fas fa-id-card"></i> NIB OSS-RBA: 0306220004813</li>
-        <li><i class="fas fa-file-invoice"></i> NPWP: 65.473.663.6-307.000</li>
-        <li><i class="fas fa-certificate"></i> Sertifikat AHU: AHU-019447.AH.01.30.Tahun 2022</li>
-        <li><i class="fas fa-chart-pie"></i> Skala Usaha: Mikro</li>
-        <li><i class="fas fa-city"></i> Domisili: Bandar Lampung</li>
-      </ul>
-    </aside>
-  </main>
+        <section id="penawaran" data-aos="fade-up">
+            <article class="content-card">
+                <h2><i class="fas fa-tags icon-accent"></i> Dapatkan Penawaran</h2>
+                <p class="form-description">Tertarik dengan layanan atau produk kami? Isi formulir di bawah ini dan tim kami akan segera menghubungi Anda untuk memberikan penawaran terbaik!</p>
+                <form class="offer-form">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap: <span class="required">*</span></label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email: <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon">Telepon/WhatsApp:</label>
+                        <input type="tel" id="telepon" name="telepon">
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan/Kebutuhan Anda: <span class="required">*</span></label>
+                        <textarea id="pesan" name="pesan" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="button-submit">Kirim Permintaan <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </article>
+        </section>
 
-  <footer>
-    <div class="footer-brand">
-      <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
-      <span>PT Ardhi Media Kreasi</span>
-    </div>
-    <div class="social-links">
-      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <p class="copyright">&copy; 2025 PT Ardhi Media Kreasi. Hak cipta dilindungi.</p>
-  </footer>
+        <section id="kontak" data-aos="fade-up">
+            <article class="content-card">
+                <h2><i class="fas fa-envelope icon-accent"></i> Kontak Kami</h2>
+                <p><i class="fas fa-at"></i> Email: <a href="mailto:ardhi_mediakreasi@yahoo.com">ardhi_mediakreasi@yahoo.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/628978367750">0897-8367-750</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Wolter Monginsidi Gg Hi. Abdullah No. 19A, Bandar Lampung</p>
+            </article>
+        </section>
+        
+        <aside class="legal-box content-card" data-aos="fade-up">
+            <h2><i class="fas fa-file-contract icon-accent"></i> Legalitas Usaha</h2>
+            <ul>
+                <li><i class="fas fa-id-card"></i> NIB OSS-RBA: 0306220004813</li>
+                <li><i class="fas fa-file-invoice"></i> NPWP: 65.473.663.6-307.000</li>
+                <li><i class="fas fa-certificate"></i> Sertifikat AHU: AHU-019447.AH.01.30.Tahun 2022</li>
+                <li><i class="fas fa-chart-pie"></i> Skala Usaha: Mikro</li>
+                <li><i class="fas fa-city"></i> Domisili: Bandar Lampung</li>
+            </ul>
+        </aside>
+    </main>
 
-  <button id="scroll-top-btn" title="Kembali ke atas">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+    <footer>
+        <div class="footer-brand">
+            <img src="logo.png" alt="Logo PT Ardhi Media Kreasi">
+            <span>PT Ardhi Media Kreasi</span>
+        </div>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 PT Ardhi Media Kreasi. Hak cipta dilindungi.</p>
+    </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <script src="script.js"></script>
+    <button id="scroll-top-btn" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

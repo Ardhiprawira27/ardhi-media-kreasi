@@ -1,21 +1,25 @@
 :root {
     /* Colors */
-    --primary-color: #001F3F; /* Dark Blue */
-    --secondary-color: #0074D9; /* Bright Blue */
-    --accent-color: #1e40af; /* Deeper Blue for headings */
-    --text-color: #1e293b; /* Dark Slate */
-    --light-bg: #f8fafc; /* Light Gray */
-    --card-bg: #fff; /* White */
-    --subtle-bg: #f1f5f9; /* Lighter Gray */
-    --hover-blue: #3b82f6; /* Lighter blue for hover effects */
+    --primary-dark: #1A202C; /* Darker background/text, modern feel */
+    --primary-blue: #2A65FF; /* Bold primary blue */
+    --accent-orange: #FF5722; /* Vibrant orange accent for dynamism */
+    --text-light: #F8FAFC; /* Near white for text on dark backgrounds */
+    --text-dark: #2D3748; /* Dark grey for body text */
+    --bg-light: #FFFFFF; /* Clean white background for cards */
+    --bg-subtle: #F0F4F8; /* Light grey for subtle backgrounds */
+    --link-hover: #1E40AF; /* Darker blue for link hover */
+    --form-border: #E2E8F0; /* Light border for form elements */
 
     /* Fonts */
     --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: 'Poppins', sans-serif; /* Uncomment jika pakai Google Fonts */
 
     /* Transitions */
     --transition-speed: 0.3s;
     --transition-ease: ease-in-out;
 }
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); */
 
 /* General Styles */
 * {
@@ -27,23 +31,34 @@
 }
 
 body {
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden; /* Mencegah scrollbar horizontal dari animasi */
+    background-color: var(--bg-subtle);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden; /* Pertahankan ini agar tidak ada scrollbar horizontal yang tidak diinginkan */
 }
 
-/* Header */
-header {
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+/* html.no-scroll, body.no-scroll DIHAPUS (karena tidak ada mobile menu) */
+
+/* Header - Gabungan Header & Hero */
+#main-header {
+    background: linear-gradient(135deg, rgba(26, 32, 44, 0.9) 0%, rgba(26, 32, 44, 0.8) 50%, rgba(42, 101, 255, 0.5) 100%), url('banner-atk.jpg') center/cover no-repeat;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    padding: 20px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 999;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    justify-content: space-between; /* Untuk menempatkan logo di kiri dan menu di kanan */
+    width: 100%;
 }
 
 .logo {
@@ -62,39 +77,49 @@ header {
     width: 50px;
     height: auto;
     border-radius: 8px;
+    filter: invert(1);
 }
 
 .logo-text {
     font-size: 20px;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-light);
     line-height: 1.2;
 }
 
+/* Desktop Menu (Sekarang default untuk semua ukuran) */
 .desktop-menu {
-    display: flex;
+    display: flex; /* Selalu tampil */
     gap: 30px;
     align-items: center;
 }
 
 .desktop-menu a {
-    color: #fff;
+    color: var(--text-light);
     font-weight: 600;
     text-decoration: none;
     font-size: 15px;
     position: relative;
+    padding: 5px 0;
     transition: color var(--transition-speed) var(--transition-ease);
+    white-space: nowrap; /* Mencegah teks menu pecah baris */
 }
 
 .desktop-menu a::after {
     content: "";
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #fff;
+    height: 3px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-orange);
     transition: width var(--transition-speed) var(--transition-ease);
+}
+
+.desktop-menu a:hover,
+.desktop-menu a:focus {
+    color: var(--accent-orange);
 }
 
 .desktop-menu a:hover::after,
@@ -102,167 +127,264 @@ header {
     width: 100%;
 }
 
+/* Hero Content in Header */
+.hero-content-in-header {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.hero-content-in-header h1 {
+    font-family: var(--font-heading, var(--font-sans));
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 25px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+.hero-content-in-header p {
+    font-size: clamp(18px, 2.5vw, 22px);
+    margin-bottom: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
 /* Main Content Sections */
 main {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
+    padding-top: 40px;
 }
 
 section, aside {
     max-width: 960px;
     margin: 0 auto;
-    padding: 60px 30px;
+    padding: 0 30px;
 }
 
 /* Card Styling for Sections */
 .content-card {
-    background: var(--card-bg);
+    background: var(--bg-light);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    padding: 50px;
 }
 
 .content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-
-h1 {
-    font-size: clamp(28px, 5vw, 36px);
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 h2 {
-    color: var(--accent-color);
-    margin-bottom: 20px;
+    font-family: var(--font-heading, var(--font-sans));
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+}
+
+/* Link "Selengkapnya" */
+.link-selengkapnya {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease, transform 0.2s ease;
+}
+
+.link-selengkapnya:hover {
+    color: var(--accent-orange);
+    transform: translateX(5px);
+}
+
+.link-selengkapnya .fas {
+    font-size: 0.8em;
+}
+
+/* Inline Link (misal: Ardhi Stationery Works) */
+.inline-link {
+    color: var(--primary-blue);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease;
+}
+
+.inline-link:hover {
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+/* Soon Box Card (Terpisah) */
+.soon-box-card {
+    background: var(--bg-subtle);
+    padding: 40px 50px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.soon-box-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.soon-box-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
 }
 
-/* Hero Section */
-#hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('banner-atk.jpg') center/cover no-repeat;
-    background-attachment: fixed; /* Parallax effect */
-    padding: 120px 30px;
-    text-align: center;
-    color: white;
-    margin-top: 30px;
-}
-
-.hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.hero-content p {
-    font-size: clamp(16px, 2vw, 18px);
-    margin-bottom: 30px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-/* Specific Section Styles */
-.soon-box, .legal-box {
-    background: var(--subtle-bg);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.soon-box h3 {
-    color: var(--text-color);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.soon-box ul, .legal-box ul {
+.soon-box-card ul, .legal-box ul {
     list-style: none;
     padding-left: 0;
 }
 
-.soon-box li, .legal-box li {
-    padding: 8px 0;
+.soon-box-card li, .legal-box li {
+    padding: 10px 0;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 12px;
 }
 
 /* Icons within content */
-.icon-blue {
-    color: var(--accent-color);
-    font-size: 1.2em; /* Slightly larger icons */
+.icon-accent {
+    color: var(--accent-orange);
+    font-size: 1.4em;
+    min-width: 25px;
+    text-align: center;
 }
 
-.soon-box li .fas,
-.legal-box li .fas {
-    color: var(--secondary-color);
+.soon-box-card li .fas,
+.legal-box li .fas,
+#kontak .content-card p .fas,
+#kontak .content-card p .fab {
+    color: var(--primary-blue);
     font-size: 1.1em;
+    min-width: 20px;
+    text-align: center;
 }
 
-/* Buttons */
+/* Buttons (Placeholder untuk gaya tombol yang dihapus) */
 a.button {
-    display: inline-flex; /* Use flexbox for button content */
+    display: inline-flex;
     align-items: center;
-    gap: 8px; /* Space between text and icon */
-    margin-top: 10px;
-    background: linear-gradient(to right, #3b82f6, #2563eb);
+    gap: 10px;
+    margin-top: 15px;
+    background: linear-gradient(to right, var(--primary-blue), var(--link-hover));
     color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
+    padding: 15px 30px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background var(--transition-speed) ease, transform 0.2s ease, box-shadow var(--transition-speed) ease;
+    font-weight: 600;
+    font-size: 1.1em;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
 }
 
 a.button:hover, a.button:focus {
-    background: linear-gradient(to right, #2563eb, #1d4ed8);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right, var(--link-hover), var(--primary-blue));
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Client Logos */
-.client-logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    padding: 20px;
-    border-top: 1px dashed var(--subtle-bg);
-    border-bottom: 1px dashed var(--subtle-bg);
-    background-color: var(--subtle-bg);
+/* Form Dapatkan Penawaran */
+.form-description {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: var(--text-dark);
+}
+
+.offer-form .form-group {
+    margin-bottom: 25px;
+}
+
+.offer-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.05em;
+}
+
+.offer-form .required {
+    color: var(--accent-orange);
+    margin-left: 4px;
+    font-weight: normal;
+}
+
+.offer-form input[type="text"],
+.offer-form input[type="email"],
+.offer-form input[type="tel"],
+.offer-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--form-border);
     border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: var(--bg-subtle);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.client-logo {
-    max-width: 150px;
-    height: auto;
-    filter: grayscale(100%); /* Make logos grayscale */
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+.offer-form input:focus,
+.offer-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(42, 101, 255, 0.2);
 }
 
-.client-logo:hover {
-    filter: grayscale(0%); /* Color on hover */
-    opacity: 1;
+.offer-form textarea {
+    resize: vertical;
+}
+
+.button-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-orange);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.25);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button-submit:hover {
+    background: #E64A19;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.35);
 }
 
 /* Footer */
 footer {
-    margin-top: 60px;
-    padding: 30px;
+    margin-top: 80px;
+    padding: 40px;
     text-align: center;
-    background: var(--primary-color);
-    color: white;
+    background: var(--primary-dark);
+    color: var(--text-light);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .footer-brand {
@@ -273,33 +395,35 @@ footer {
 }
 
 .footer-brand img {
-    width: 40px;
-    border-radius: 6px;
+    width: 45px;
+    border-radius: 8px;
+    filter: invert(1);
 }
 
 .footer-brand span {
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 .social-links {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .social-links a {
-    color: #60a5fa;
-    font-size: 24px;
+    color: var(--accent-orange);
+    font-size: 28px;
     transition: color var(--transition-speed) ease, transform 0.2s ease;
 }
 
 .social-links a:hover, .social-links a:focus {
-    color: #93c5fd;
-    transform: translateY(-3px);
+    color: var(--text-light);
+    transform: translateY(-5px) rotate(5deg);
 }
 
 .copyright {
-    font-size: 14px;
-    opacity: 0.8;
+    font-size: 0.9em;
+    opacity: 0.7;
 }
 
 /* Scroll-to-top Button */
@@ -307,18 +431,18 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    padding: 12px 16px;
-    font-size: 16px;
-    background: var(--accent-color);
+    padding: 15px 18px;
+    font-size: 18px;
+    background: var(--primary-blue);
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease, background 0.3s ease;
 }
 
 #scroll-top-btn.show {
@@ -327,44 +451,128 @@ footer {
 }
 
 #scroll-top-btn:hover {
-    transform: translateY(-3px);
-    background: #15328e; /* Slightly darker on hover */
+    transform: translateY(-5px);
+    background: var(--link-hover);
 }
 
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 15px;
+/* --- Mobile Menu & Hamburger - DIHAPUS SEMUA GAYA TERKAIT INI --- */
+.hamburger {
+    display: none !important; /* Pastikan hamburger tidak pernah muncul */
+}
+
+.mobile-menu {
+    display: none !important; /* Pastikan mobile menu tidak pernah muncul */
+}
+
+/* Responsiveness - DIUBAH UNTUK MENU DESKTOP AGAR MENYESUAIKAN LAYAR KECIL */
+@media (max-width: 992px) {
+    /* desktop-menu sekarang adalah satu-satunya menu, jadi tidak perlu disembunyikan */
+    .desktop-menu {
+        gap: 20px; /* Kurangi jarak antar item menu di layar yang lebih kecil */
+    }
+    .desktop-menu a {
+        font-size: 14px; /* Kecilkan font menu jika perlu */
+        padding: 5px 0; /* Pastikan padding tetap nyaman */
     }
 
-    .desktop-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+    #main-header {
+        padding: 15px 20px;
+        min-height: 400px;
+    }
+    .hero-content-in-header {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .hero-content-in-header h1 {
+        font-size: clamp(28px, 6vw, 40px);
+    }
+    .hero-content-in-header p {
+        font-size: clamp(16px, 2.5vw, 20px);
     }
 
     section, aside {
-        padding: 40px 20px;
+        padding: 0 20px;
+    }
+    .content-card {
+        padding: 40px;
+    }
+    .soon-box-card {
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    #main-header {
+        min-height: 350px;
+        /* Jika menu masih terlalu lebar, gunakan flex-wrap atau ubah layout */
+        flex-direction: column; /* Ubah header menjadi vertikal di layar kecil */
+        align-items: center; /* Pusatkan item */
+        justify-content: flex-start; /* Dorong konten ke atas */
+        padding-bottom: 20px; /* Sesuaikan padding bawah */
+    }
+    .header-top {
+        flex-direction: column; /* Logo dan menu juga jadi vertikal */
+        gap: 15px; /* Jarak antar logo dan menu */
+    }
+    .desktop-menu {
+        flex-wrap: wrap; /* Jika menu terlalu panjang, biarkan wrap */
+        justify-content: center; /* Pusatkan item menu yang wrap */
+        gap: 15px; /* Kurangi gap lebih lanjut */
+        margin-top: 15px; /* Beri jarak dari logo */
+    }
+    .desktop-menu a {
+        font-size: 13px; /* Lebih kecil lagi */
+    }
+    .logo-text {
+        font-size: 18px;
+    }
+    h2 {
+        font-size: clamp(22px, 4vw, 28px);
+    }
+    .hero-content-in-header {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .logo-text {
-        font-size: 18px;
+    #main-header {
+        min-height: 300px;
+        padding: 10px 15px;
     }
-
-    h1 {
-        font-size: 24px;
+    .hero-content-in-header h1 {
+        font-size: clamp(24px, 7vw, 36px);
     }
-
-    a.button {
-        padding: 10px 20px;
+    .hero-content-in-header p {
+        font-size: clamp(15px, 3.5vw, 18px);
     }
-
-    .client-logo {
-        max-width: 100px; /* Lebih kecil di layar kecil */
+    section, aside {
+        padding: 0 15px;
+    }
+    .content-card {
+        padding: 30px;
+    }
+    .soon-box-card {
+        padding: 25px 30px;
+    }
+    .desktop-menu {
+        gap: 10px; /* Gap lebih kecil lagi */
+    }
+    .desktop-menu a {
+        font-size: 12px; /* Font paling kecil */
+    }
+    .offer-form input, .offer-form textarea {
+        padding: 10px 12px;
+    }
+    .button-submit {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+    #scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 14px;
+        font-size: 16px;
     }
 }
