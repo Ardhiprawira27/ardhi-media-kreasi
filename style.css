@@ -143,6 +143,15 @@ ul li .fas, ul li .far, ul li .fab {
     margin: 0 auto;
 }
 
+/* Styling for unit-brand-text in stationery.html */
+.unit-brand-text {
+    font-weight: bold;
+    color: var(--primary-green); /* Menggunakan warna hijau utama dari palette */
+    font-size: 1.2em; /* Ukuran teks sedikit lebih besar */
+    margin-top: var(--spacing-sm); /* Sedikit jarak dari paragraf di atasnya */
+    text-align: center; /* Pusatkan teks */
+}
+
 .icon-accent {
     color: var(--primary-green);
     margin-right: var(--spacing-sm);
